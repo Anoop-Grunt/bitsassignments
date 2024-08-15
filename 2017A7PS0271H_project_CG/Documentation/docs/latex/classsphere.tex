@@ -1,0 +1,118 @@
+\hypertarget{classsphere}{}\doxysection{sphere Class Reference}
+\label{classsphere}\index{sphere@{sphere}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classsphere_ad00de6a3923db184946077b5f52013bd}{sphere}} (vec3 \mbox{\hyperlink{classsphere_a627be5e72c760037f7e976a00e14192c}{center}}, float r, vec3 \mbox{\hyperlink{classsphere_ae83f24e7c6edd7338ce7e7c914894eb3}{albedo}}, mat\+\_\+type m, float ref\+\_\+index)
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classsphere_a9ef0244def9169caf9423ab44bc208cc}{$\sim$sphere}} ()
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classsphere_a9e9e2c8610a4c74bd8e221d1e691bd19}{hit}} (\mbox{\hyperlink{classray}{ray}} r, float tmin, float tmax, \mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} \&rec)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vec3 \mbox{\hyperlink{classsphere_a627be5e72c760037f7e976a00e14192c}{center}}
+\item 
+float \mbox{\hyperlink{classsphere_a9bad2d7ecf6f75cc998b893248fff8a2}{radius}}
+\item 
+vec3 \mbox{\hyperlink{classsphere_ae83f24e7c6edd7338ce7e7c914894eb3}{albedo}}
+\item 
+mat\+\_\+type \mbox{\hyperlink{classsphere_adda65057ddb1803729ee38d38d09a34b}{type}}
+\item 
+float \mbox{\hyperlink{classsphere_a0c8aeee57b7f57c94badff9f897d2d70}{ri}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Objects of this class represent spheres in the scene, The spheres are intersected by rays and return their color values. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsphere_ad00de6a3923db184946077b5f52013bd}\label{classsphere_ad00de6a3923db184946077b5f52013bd}} 
+\index{sphere@{sphere}!sphere@{sphere}}
+\index{sphere@{sphere}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{sphere()}{sphere()}}
+{\footnotesize\ttfamily sphere\+::sphere (\begin{DoxyParamCaption}\item[{vec3}]{center,  }\item[{float}]{r,  }\item[{vec3}]{albedo,  }\item[{mat\+\_\+type}]{m,  }\item[{float}]{ref\+\_\+index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & A glm\+::vec3 specifying the center of the sphere. \\
+\hline
+{\em r} & A float value specifying the radius of the sphere. \\
+\hline
+{\em albedo} & A glm\+::vec3 specifying the diffuse color of the material, the format is R\+G\+B8. \\
+\hline
+{\em m} & The material type. \\
+\hline
+{\em ref\+\_\+index} & The refractive index of the material.\\
+\hline
+\end{DoxyParams}
+The contructor for the class, the {\bfseries{device}} declspec means that the construcor can only be called on the G\+PU. \mbox{\Hypertarget{classsphere_a9ef0244def9169caf9423ab44bc208cc}\label{classsphere_a9ef0244def9169caf9423ab44bc208cc}} 
+\index{sphere@{sphere}!````~sphere@{$\sim$sphere}}
+\index{````~sphere@{$\sim$sphere}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{$\sim$sphere()}{~sphere()}}
+{\footnotesize\ttfamily sphere\+::$\sim$sphere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor, N\+V\+CC generates the object code which frees up G\+PU heap memory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsphere_a9e9e2c8610a4c74bd8e221d1e691bd19}\label{classsphere_a9e9e2c8610a4c74bd8e221d1e691bd19}} 
+\index{sphere@{sphere}!hit@{hit}}
+\index{hit@{hit}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool sphere\+::hit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classray}{ray}}}]{r,  }\item[{float}]{tmin,  }\item[{float}]{tmax,  }\item[{\mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} \&}]{rec }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & The ray object with which the hit test is to be performed \\
+\hline
+{\em t\+\_\+min} & The minimum value for the t parameter, used to avoid negative t values, and to accomodate for floating point errors \\
+\hline
+{\em t\+\_\+max} & The maximum value for the t\+\_\+prameter, use so that the ray doesn\textquotesingle{}t continue indefinitely. \\
+\hline
+{\em rec} & A \mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} struct object, contains the details of the hit record.\\
+\hline
+\end{DoxyParams}
+Returns true if the ray hits the sphere, also modifies the value of the hit record appropriately. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsphere_ae83f24e7c6edd7338ce7e7c914894eb3}\label{classsphere_ae83f24e7c6edd7338ce7e7c914894eb3}} 
+\index{sphere@{sphere}!albedo@{albedo}}
+\index{albedo@{albedo}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{albedo}{albedo}}
+{\footnotesize\ttfamily vec3 sphere\+::albedo}
+
+A glm\+::vec3 that stores the matte color of the sphere ~\newline
+ \mbox{\Hypertarget{classsphere_a627be5e72c760037f7e976a00e14192c}\label{classsphere_a627be5e72c760037f7e976a00e14192c}} 
+\index{sphere@{sphere}!center@{center}}
+\index{center@{center}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{center}{center}}
+{\footnotesize\ttfamily vec3 sphere\+::center}
+
+A glm\+::vec3 that stores the center of the sphere ~\newline
+ \mbox{\Hypertarget{classsphere_a9bad2d7ecf6f75cc998b893248fff8a2}\label{classsphere_a9bad2d7ecf6f75cc998b893248fff8a2}} 
+\index{sphere@{sphere}!radius@{radius}}
+\index{radius@{radius}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily float sphere\+::radius}
+
+A glm\+::vec3 that stores the center of the sphere ~\newline
+ \mbox{\Hypertarget{classsphere_a0c8aeee57b7f57c94badff9f897d2d70}\label{classsphere_a0c8aeee57b7f57c94badff9f897d2d70}} 
+\index{sphere@{sphere}!ri@{ri}}
+\index{ri@{ri}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{ri}{ri}}
+{\footnotesize\ttfamily float sphere\+::ri}
+
+A glm\+::vec3 that stores the refractive index of the sphere material \mbox{\Hypertarget{classsphere_adda65057ddb1803729ee38d38d09a34b}\label{classsphere_adda65057ddb1803729ee38d38d09a34b}} 
+\index{sphere@{sphere}!type@{type}}
+\index{type@{type}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily mat\+\_\+type sphere\+::type}
+
+A glm\+::vec3 that stores the material type of the sphere ~\newline
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/sphere.\+cuh\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/sphere.\+cu\end{DoxyCompactItemize}

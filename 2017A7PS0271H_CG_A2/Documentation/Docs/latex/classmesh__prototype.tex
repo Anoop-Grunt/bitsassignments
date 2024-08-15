@@ -1,0 +1,59 @@
+\hypertarget{classmesh__prototype}{}\doxysection{mesh\+\_\+prototype Class Reference}
+\label{classmesh__prototype}\index{mesh\_prototype@{mesh\_prototype}}
+
+
+{\ttfamily \#include $<$Global\+\_\+\+Bind\+\_\+\+Test.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmesh__prototype_aa5ce5d25173df6220b5578a8d54dd150}{mesh\+\_\+prototype}} (float $\ast$vertices, unsigned int $\ast$indices, unsigned int vbsize, unsigned int ibsize)
+\item 
+\mbox{\hyperlink{classmesh__prototype_a964891c9c56cab25fd6cc827d64ca3d0}{$\sim$mesh\+\_\+prototype}} ()
+\item 
+void \mbox{\hyperlink{classmesh__prototype_a5dc8cf400face9e9a80586eba6aa7d05}{draw}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class associated with polygonal meshes. called prototype because meshes can contain vertices of only one layout \+:\{3floats for position, 3floats for normal \} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmesh__prototype_aa5ce5d25173df6220b5578a8d54dd150}\label{classmesh__prototype_aa5ce5d25173df6220b5578a8d54dd150}} 
+\index{mesh\_prototype@{mesh\_prototype}!mesh\_prototype@{mesh\_prototype}}
+\index{mesh\_prototype@{mesh\_prototype}!mesh\_prototype@{mesh\_prototype}}
+\doxysubsubsection{\texorpdfstring{mesh\_prototype()}{mesh\_prototype()}}
+{\footnotesize\ttfamily mesh\+\_\+prototype\+::mesh\+\_\+prototype (\begin{DoxyParamCaption}\item[{float $\ast$}]{vertices,  }\item[{unsigned int $\ast$}]{indices,  }\item[{unsigned int}]{vbsize,  }\item[{unsigned int}]{ibsize }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & pointer to the contiguous segment of memory where the vertices are stored \\
+\hline
+{\em indices} & pointer to the contiguous segment of memory where the indices are stored \\
+\hline
+{\em vbsize} & the size of the memory segment where the vertices are stored \\
+\hline
+{\em ibsize} & the size number of indices in the mesh Creates a vertex buffer, an index bvuffer and a vertex array object with default layout. The layout cant be changed so meshes with texture uv\textquotesingle{}s etc will not work properly \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmesh__prototype_a964891c9c56cab25fd6cc827d64ca3d0}\label{classmesh__prototype_a964891c9c56cab25fd6cc827d64ca3d0}} 
+\index{mesh\_prototype@{mesh\_prototype}!````~mesh\_prototype@{$\sim$mesh\_prototype}}
+\index{````~mesh\_prototype@{$\sim$mesh\_prototype}!mesh\_prototype@{mesh\_prototype}}
+\doxysubsubsection{\texorpdfstring{$\sim$mesh\_prototype()}{~mesh\_prototype()}}
+{\footnotesize\ttfamily mesh\+\_\+prototype\+::$\sim$mesh\+\_\+prototype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destrcutor, note that in this version the associated V\+BO, V\+AO, E\+BO are not deleted, the programmer himself has to handle the G\+PU memory management 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmesh__prototype_a5dc8cf400face9e9a80586eba6aa7d05}\label{classmesh__prototype_a5dc8cf400face9e9a80586eba6aa7d05}} 
+\index{mesh\_prototype@{mesh\_prototype}!draw@{draw}}
+\index{draw@{draw}!mesh\_prototype@{mesh\_prototype}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void mesh\+\_\+prototype\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Draws the mesh, the model matrix can\textquotesingle{}t be specified here, it needs to be specified in the \mbox{\hyperlink{classscene__artefact}{scene\+\_\+artefact}} class 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Global\+\_\+\+Bind\+\_\+\+Test.\+h\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Global\+\_\+\+Bind\+\_\+\+Test.\+cpp\end{DoxyCompactItemize}

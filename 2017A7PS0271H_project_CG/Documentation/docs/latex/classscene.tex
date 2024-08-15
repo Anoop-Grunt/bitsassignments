@@ -1,0 +1,81 @@
+\hypertarget{classscene}{}\doxysection{scene Class Reference}
+\label{classscene}\index{scene@{scene}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classscene_a593f0d7907067a28cffea0436dd38beb}{scene}} (\mbox{\hyperlink{classsphere}{sphere}} $\ast$$\ast$device\+\_\+pointer, int count)
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classscene_adb568184bf9acb212b382ea4fd78df3f}{$\sim$scene}} ()
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classscene_a4b959aed07da0601757ccf7780cf4ca2}{hit\+\_\+full}} (\mbox{\hyperlink{classray}{ray}} r, \mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} \&rec)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsphere}{sphere}} $\ast$$\ast$ \mbox{\hyperlink{classscene_a500a4fa9f4fd8857769a1c2e8339e0ec}{spheres}}
+\item 
+int \mbox{\hyperlink{classscene_aa816e8284f9fe06bad9172cb532fbc2f}{s\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generally only one object of this class exists on the G\+PU at any one instant , the object contains pointers to all the spheres in the scene. ~\newline
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classscene_a593f0d7907067a28cffea0436dd38beb}\label{classscene_a593f0d7907067a28cffea0436dd38beb}} 
+\index{scene@{scene}!scene@{scene}}
+\index{scene@{scene}!scene@{scene}}
+\doxysubsubsection{\texorpdfstring{scene()}{scene()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ scene\+::scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsphere}{sphere}} $\ast$$\ast$}]{device\+\_\+pointer,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+\_\+pointer} & The pointer to the memory segment on the G\+PU that was allocated Using Cuda\+Malloc, Please make sure that the memory allocated is the same as count$\ast$sizeof(sphere) \\
+\hline
+{\em count} & the number of spheres in the scene.\\
+\hline
+\end{DoxyParams}
+The constructor for the class, the {\bfseries{device}} declspec means that the constructor can only be called on the G\+PU. \mbox{\Hypertarget{classscene_adb568184bf9acb212b382ea4fd78df3f}\label{classscene_adb568184bf9acb212b382ea4fd78df3f}} 
+\index{scene@{scene}!````~scene@{$\sim$scene}}
+\index{````~scene@{$\sim$scene}!scene@{scene}}
+\doxysubsubsection{\texorpdfstring{$\sim$scene()}{~scene()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ scene\+::$\sim$scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default for the class, N\+V\+CC generates the object code which frees the G\+PU heap memory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene_a4b959aed07da0601757ccf7780cf4ca2}\label{classscene_a4b959aed07da0601757ccf7780cf4ca2}} 
+\index{scene@{scene}!hit\_full@{hit\_full}}
+\index{hit\_full@{hit\_full}!scene@{scene}}
+\doxysubsubsection{\texorpdfstring{hit\_full()}{hit\_full()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool scene\+::hit\+\_\+full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classray}{ray}}}]{r,  }\item[{\mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} \&}]{rec }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The ray with which to perform the hit test. \\
+\hline
+{\em rec} & The address of the hit record which is to be updated if the ray succesfully hits a sphere\\
+\hline
+\end{DoxyParams}
+Returns True if the ray hits any object in the scene, also modifies the hit record appropriately. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscene_aa816e8284f9fe06bad9172cb532fbc2f}\label{classscene_aa816e8284f9fe06bad9172cb532fbc2f}} 
+\index{scene@{scene}!s\_count@{s\_count}}
+\index{s\_count@{s\_count}!scene@{scene}}
+\doxysubsubsection{\texorpdfstring{s\_count}{s\_count}}
+{\footnotesize\ttfamily int scene\+::s\+\_\+count}
+
+The number of spheres in the scene \mbox{\Hypertarget{classscene_a500a4fa9f4fd8857769a1c2e8339e0ec}\label{classscene_a500a4fa9f4fd8857769a1c2e8339e0ec}} 
+\index{scene@{scene}!spheres@{spheres}}
+\index{spheres@{spheres}!scene@{scene}}
+\doxysubsubsection{\texorpdfstring{spheres}{spheres}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsphere}{sphere}}$\ast$$\ast$ scene\+::spheres}
+
+A device pointer to the memory segment where all the spheres have been defined. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/scene.\+cuh\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/scene.\+cu\end{DoxyCompactItemize}

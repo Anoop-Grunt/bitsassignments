@@ -1,0 +1,96 @@
+\hypertarget{classfreecam}{}\doxysection{freecam Class Reference}
+\label{classfreecam}\index{freecam@{freecam}}
+
+
+{\ttfamily \#include $<$freecam.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfreecam_a1ba90b6660b409c055918a8cbf5b7c86}{freecam}} ()
+\item 
+\mbox{\hyperlink{classfreecam_add8024756ef93446298f790d57512fe8}{$\sim$ freecam}} ()
+\item 
+void \mbox{\hyperlink{classfreecam_a25e7465fd6d56b3422cbdead43e048c0}{input\+\_\+handler}} (G\+L\+F\+Wwindow $\ast$window)
+\item 
+void \mbox{\hyperlink{classfreecam_a706206e9c30c6e566d37550bf131952f}{mouse\+\_\+handler}} (G\+L\+F\+Wwindow $\ast$window, double mouse\+\_\+x, double mouse\+\_\+y)
+\item 
+void \mbox{\hyperlink{classfreecam_afedf0cbeafe8ae82cf1e701db691393d}{scroll\+\_\+handler}} (G\+L\+F\+Wwindow $\ast$window, double x\+\_\+disp, double y\+\_\+disp)
+\item 
+\mbox{\Hypertarget{classfreecam_adbfaf4c50f32cd7b60dae1e01a498e47}\label{classfreecam_adbfaf4c50f32cd7b60dae1e01a498e47}} 
+glm\+::mat4 \mbox{\hyperlink{classfreecam_adbfaf4c50f32cd7b60dae1e01a498e47}{view}} ()
+\begin{DoxyCompactList}\small\item\em The view matrix for the camera. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classfreecam_a90102248844b71e522faebf0c2378c8a}\label{classfreecam_a90102248844b71e522faebf0c2378c8a}} 
+glm\+::mat4 \mbox{\hyperlink{classfreecam_a90102248844b71e522faebf0c2378c8a}{projection}} ()
+\begin{DoxyCompactList}\small\item\em The projection matrix for the camera. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classfreecam_ab9929969c029233076bdbafffdfc1319}\label{classfreecam_ab9929969c029233076bdbafffdfc1319}} 
+glm\+::vec3 \mbox{\hyperlink{classfreecam_ab9929969c029233076bdbafffdfc1319}{position}} ()
+\begin{DoxyCompactList}\small\item\em The cameras position, Used for specular lighting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Free camera class, Camera is capable of moving around the scene, rotations around the yaw, pitch and roll axes, and zoom multiple cameras can be used with multiple windows, but Source.\+cpp needs to be slightly modified Oblique viwing angles are not allowed, and hence the shear step is omitted from the normalizing transform Also the initial field of view defaults to 45 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfreecam_a1ba90b6660b409c055918a8cbf5b7c86}\label{classfreecam_a1ba90b6660b409c055918a8cbf5b7c86}} 
+\index{freecam@{freecam}!freecam@{freecam}}
+\index{freecam@{freecam}!freecam@{freecam}}
+\doxysubsubsection{\texorpdfstring{freecam()}{freecam()}}
+{\footnotesize\ttfamily freecam\+::freecam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for the class, the initial position defaults to z = 3, x ,y = 0, and the camera faces towards the origin \mbox{\Hypertarget{classfreecam_add8024756ef93446298f790d57512fe8}\label{classfreecam_add8024756ef93446298f790d57512fe8}} 
+\index{freecam@{freecam}!````~ freecam@{$\sim$ freecam}}
+\index{````~ freecam@{$\sim$ freecam}!freecam@{freecam}}
+\doxysubsubsection{\texorpdfstring{$\sim$ freecam()}{~ freecam()}}
+{\footnotesize\ttfamily freecam\+::$\sim$ \mbox{\hyperlink{classfreecam}{freecam}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor, Not really meaningful unless multiple cameras are used 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfreecam_a25e7465fd6d56b3422cbdead43e048c0}\label{classfreecam_a25e7465fd6d56b3422cbdead43e048c0}} 
+\index{freecam@{freecam}!input\_handler@{input\_handler}}
+\index{input\_handler@{input\_handler}!freecam@{freecam}}
+\doxysubsubsection{\texorpdfstring{input\_handler()}{input\_handler()}}
+{\footnotesize\ttfamily void freecam\+::input\+\_\+handler (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Ponter to the current Open\+GL context\\
+\hline
+\end{DoxyParams}
+Handles keyboard input, use \textquotesingle{}W\+A\+SD\textquotesingle{} to move around and\textquotesingle{}12\textquotesingle{} to roll \mbox{\Hypertarget{classfreecam_a706206e9c30c6e566d37550bf131952f}\label{classfreecam_a706206e9c30c6e566d37550bf131952f}} 
+\index{freecam@{freecam}!mouse\_handler@{mouse\_handler}}
+\index{mouse\_handler@{mouse\_handler}!freecam@{freecam}}
+\doxysubsubsection{\texorpdfstring{mouse\_handler()}{mouse\_handler()}}
+{\footnotesize\ttfamily void freecam\+::mouse\+\_\+handler (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{double}]{mouse\+\_\+x,  }\item[{double}]{mouse\+\_\+y }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & pointer to the Open\+GL context \\
+\hline
+{\em mouse\+\_\+x} & the normalized x-\/co ordinate of the mouse cursor \\
+\hline
+{\em mouse\+\_\+y} & the normalized y-\/co ordinate of the mouse cursor\\
+\hline
+\end{DoxyParams}
+handles the mouse input, Use mouse axis movements to pan the camera around, and the scroll wheel to zoom in and out \mbox{\Hypertarget{classfreecam_afedf0cbeafe8ae82cf1e701db691393d}\label{classfreecam_afedf0cbeafe8ae82cf1e701db691393d}} 
+\index{freecam@{freecam}!scroll\_handler@{scroll\_handler}}
+\index{scroll\_handler@{scroll\_handler}!freecam@{freecam}}
+\doxysubsubsection{\texorpdfstring{scroll\_handler()}{scroll\_handler()}}
+{\footnotesize\ttfamily void freecam\+::scroll\+\_\+handler (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{double}]{x\+\_\+disp,  }\item[{double}]{y\+\_\+disp }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & pointer to the Open\+GL context \\
+\hline
+{\em x\+\_\+disp} & the fov-\/x parameter \\
+\hline
+{\em y\+\_\+disp} & the fov-\/y parameter\\
+\hline
+\end{DoxyParams}
+Handles scroll wheel input Scroll up to zoom in and down to zoom out Zoom is done by reducing the fov angle 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/freecam.\+h\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/freecam.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,89 @@
+\hypertarget{classcamera}{}\doxysection{camera Class Reference}
+\label{classcamera}\index{camera@{camera}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcamera_aa7abed4fad1a3667666c73daa21dcb1f}{camera}} ()
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classray}{ray}} \mbox{\hyperlink{classcamera_a069c29225c52d2108dc301bff078b213}{get\+\_\+ray}} (float u, float v)
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcamera_a34ff967bae6396c02c257114bb92e311}{$\sim$camera}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vec3 \mbox{\hyperlink{classcamera_a0e8ae66c9bc5ce2a29a5ca9e029d8273}{origin}}
+\item 
+vec3 \mbox{\hyperlink{classcamera_af3d1c80518dd694a2e493a58998f444f}{lower\+\_\+left\+\_\+corner}}
+\item 
+vec3 \mbox{\hyperlink{classcamera_a195d6ef80d6cd3d4ef6dbdf6333799d3}{horizontal}}
+\item 
+vec3 \mbox{\hyperlink{classcamera_a27c92c40ba0833359e87ecf095cc4d22}{vertical}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The camera class for the ray tracer, Note that this camera is static, because the rendering time for simple framebuffers is around 25 seconds. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcamera_aa7abed4fad1a3667666c73daa21dcb1f}\label{classcamera_aa7abed4fad1a3667666c73daa21dcb1f}} 
+\index{camera@{camera}!camera@{camera}}
+\index{camera@{camera}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{camera()}{camera()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ camera\+::camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The constructor for the class, the {\bfseries{device}} declspec means that the constructor can be called ony on the G\+PU \mbox{\Hypertarget{classcamera_a34ff967bae6396c02c257114bb92e311}\label{classcamera_a34ff967bae6396c02c257114bb92e311}} 
+\index{camera@{camera}!````~camera@{$\sim$camera}}
+\index{````~camera@{$\sim$camera}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{$\sim$camera()}{~camera()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ camera\+::$\sim$camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor, N\+V\+CC generates the object code which frees up G\+PU heap memory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcamera_a069c29225c52d2108dc301bff078b213}\label{classcamera_a069c29225c52d2108dc301bff078b213}} 
+\index{camera@{camera}!get\_ray@{get\_ray}}
+\index{get\_ray@{get\_ray}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{get\_ray()}{get\_ray()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classray}{ray}} camera\+::get\+\_\+ray (\begin{DoxyParamCaption}\item[{float}]{u,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & The u co-\/ordinate of the pixel, on the projection plane. \\
+\hline
+{\em v} & The v co-\/ordinate of the pixel, on the projection plane.\\
+\hline
+\end{DoxyParams}
+Returns a ray that passes through u, v on the projection plane. The origin is always the cameras position. N\+V\+CC generates the object code which frees up G\+PU heap memory. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcamera_a195d6ef80d6cd3d4ef6dbdf6333799d3}\label{classcamera_a195d6ef80d6cd3d4ef6dbdf6333799d3}} 
+\index{camera@{camera}!horizontal@{horizontal}}
+\index{horizontal@{horizontal}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{horizontal}{horizontal}}
+{\footnotesize\ttfamily vec3 camera\+::horizontal}
+
+A glm\+::vec3 object which stores the cameras right direction. \mbox{\Hypertarget{classcamera_af3d1c80518dd694a2e493a58998f444f}\label{classcamera_af3d1c80518dd694a2e493a58998f444f}} 
+\index{camera@{camera}!lower\_left\_corner@{lower\_left\_corner}}
+\index{lower\_left\_corner@{lower\_left\_corner}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{lower\_left\_corner}{lower\_left\_corner}}
+{\footnotesize\ttfamily vec3 camera\+::lower\+\_\+left\+\_\+corner}
+
+A glm\+::vec3 object which stores the projection planes lower left position. \mbox{\Hypertarget{classcamera_a0e8ae66c9bc5ce2a29a5ca9e029d8273}\label{classcamera_a0e8ae66c9bc5ce2a29a5ca9e029d8273}} 
+\index{camera@{camera}!origin@{origin}}
+\index{origin@{origin}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{origin}{origin}}
+{\footnotesize\ttfamily vec3 camera\+::origin}
+
+A glm\+::vec3 object which stores the projection planes center position. \mbox{\Hypertarget{classcamera_a27c92c40ba0833359e87ecf095cc4d22}\label{classcamera_a27c92c40ba0833359e87ecf095cc4d22}} 
+\index{camera@{camera}!vertical@{vertical}}
+\index{vertical@{vertical}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{vertical}{vertical}}
+{\footnotesize\ttfamily vec3 camera\+::vertical}
+
+A glm\+::vec3 object which stores the cameras up direction. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/ray\+\_\+tracing\+\_\+camera.\+cuh\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/ray\+\_\+tracing\+\_\+camera.\+cu\end{DoxyCompactItemize}

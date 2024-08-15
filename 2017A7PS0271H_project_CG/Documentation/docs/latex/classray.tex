@@ -1,0 +1,76 @@
+\hypertarget{classray}{}\doxysection{ray Class Reference}
+\label{classray}\index{ray@{ray}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classray_aad1f9e3749df17cb6fa977d9959224a8}{ray}} (glm\+::vec3 \mbox{\hyperlink{classray_ad9932b9232d8942db46c8d72060f8b5b}{origin}}, glm\+::vec3 \mbox{\hyperlink{classray_a065ec429f001e985ee08df3a808e843e}{direction}})
+\item 
+\mbox{\Hypertarget{classray_ae29c6b5cecdc32127dc9e5c0141d120d}\label{classray_ae29c6b5cecdc32127dc9e5c0141d120d}} 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classray_ae29c6b5cecdc32127dc9e5c0141d120d}{$\sim$ray}} ()
+\begin{DoxyCompactList}\small\item\em The default destructor for the class, N\+V\+CC generates the object code which frees heap memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classray_ab95e3176802d0528668f297296f0427b}\label{classray_ab95e3176802d0528668f297296f0427b}} 
+\+\_\+\+\_\+device\+\_\+\+\_\+ glm\+::vec3 \mbox{\hyperlink{classray_ab95e3176802d0528668f297296f0427b}{get\+\_\+origin}} ()
+\begin{DoxyCompactList}\small\item\em Returns a glm\+::vec3 object, whose x,y,z fields are the co-\/ordinates of the origin of the ray. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classray_a4dc7a82d505431203d4f807d8a021699}\label{classray_a4dc7a82d505431203d4f807d8a021699}} 
+\+\_\+\+\_\+device\+\_\+\+\_\+ glm\+::vec3 \mbox{\hyperlink{classray_a4dc7a82d505431203d4f807d8a021699}{get\+\_\+direction}} ()
+\begin{DoxyCompactList}\small\item\em Returns a glm\+::vec3 object, whose x,y,z fields are the components of the unit vector in the rays direction. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ glm\+::vec3 \mbox{\hyperlink{classray_a273a35bbe68cb184c4641dd1179d6814}{get\+\_\+point\+\_\+at\+\_\+t}} (float t)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{classray_ad9932b9232d8942db46c8d72060f8b5b}{origin}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{classray_a065ec429f001e985ee08df3a808e843e}{direction}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Objects of the ray class signify rays of light emitted by the camera. The rays are supposed to hit objects and return the corresponding color value. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classray_aad1f9e3749df17cb6fa977d9959224a8}\label{classray_aad1f9e3749df17cb6fa977d9959224a8}} 
+\index{ray@{ray}!ray@{ray}}
+\index{ray@{ray}!ray@{ray}}
+\doxysubsubsection{\texorpdfstring{ray()}{ray()}}
+{\footnotesize\ttfamily ray\+::ray (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{origin,  }\item[{glm\+::vec3}]{direction }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The direction vector of the ray, needs to be a glm\+::vec3 object. \\
+\hline
+{\em origin} & The starting point of the ray, needs to be a glm\+::vec3 object.\\
+\hline
+\end{DoxyParams}
+The constructor for the class, takes the origin and direction, as parameters. ray objects are created on the G\+PU heap as specified by the {\bfseries{device}} declspec. ~\newline
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classray_a273a35bbe68cb184c4641dd1179d6814}\label{classray_a273a35bbe68cb184c4641dd1179d6814}} 
+\index{ray@{ray}!get\_point\_at\_t@{get\_point\_at\_t}}
+\index{get\_point\_at\_t@{get\_point\_at\_t}!ray@{ray}}
+\doxysubsubsection{\texorpdfstring{get\_point\_at\_t()}{get\_point\_at\_t()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ glm\+::vec3 ray\+::get\+\_\+point\+\_\+at\+\_\+t (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})}
+
+Returns a glm\+::vec3 object, whose x,y,z fields are the co-\/ordinates of the point on the ray at parameter t, the point is calculated as {\bfseries{origin + t$\ast$direction}} ~\newline
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classray_a065ec429f001e985ee08df3a808e843e}\label{classray_a065ec429f001e985ee08df3a808e843e}} 
+\index{ray@{ray}!direction@{direction}}
+\index{direction@{direction}!ray@{ray}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily glm\+::vec3 ray\+::direction}
+
+glm\+::vec3 object which stores the direction of the ray \mbox{\Hypertarget{classray_ad9932b9232d8942db46c8d72060f8b5b}\label{classray_ad9932b9232d8942db46c8d72060f8b5b}} 
+\index{ray@{ray}!origin@{origin}}
+\index{origin@{origin}!ray@{ray}}
+\doxysubsubsection{\texorpdfstring{origin}{origin}}
+{\footnotesize\ttfamily glm\+::vec3 ray\+::origin}
+
+glm\+::vec3 object which stores the origin of the ray 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/\mbox{\hyperlink{ray_8cuh}{ray.\+cuh}}\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/ray.\+cu\end{DoxyCompactItemize}

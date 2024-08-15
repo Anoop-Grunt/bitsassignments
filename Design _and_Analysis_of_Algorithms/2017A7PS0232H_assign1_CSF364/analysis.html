@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+<title>Assignment-1 Analysis </title>
+</head>
+<body>
+    <h1 style="font-size: 35px; text-align: center;"><b><u>Assignment-1 Analysis</u></b></h1>
+    <br>
+    <h1><u>Results</u></h1>
+    <p style="font-size: 22px;">We ran both the algorithms on three small testcases to verify our algoritm implementation and on two large testcases with more than 1000 nodes in each to check the robustness of the algorithm.<br>The small testcases are taken from the files smalltest1.txt,smalltest2.txt and smalltest3.txt and the largetestcases are taken from the files largetest1.txt and largetest2.txt.The outputs of the algorithms that is the strongly connected components in the given inputs are stored in the output files smalloutput1.txt,smalloutput2.txt,smalloutput3.txt for the three small testcases and in largeoutput1.txt and largeoutput2.txt for the two large testcases.<br>The graphs for the small testcases and their strongly connected components are visualised using R language.The visualized graphs are stored as image files.We were unable to visualize large tetscases as it was too crowed at one area in the image. </p><br>
+    <!-- <img src="C:\Users\Subhash\Desktop\plots\smalltest1" style="width: 500px; height: 350px;"> -->
+    <div class="row">
+        <div class="column">
+          <img src=".\visualisation\smalltest1" alt="Snow" style="width:100%">
+        </div>
+        <div class="column">
+          <img src=".\visualisation\smalltest2" alt="Forest" style="width:100%">
+        </div>
+        <div class="column">
+          <img src=".\visualisation\smalltest3" alt="Mountains" style="width:100%">
+        </div>
+      </div>
+      <style>/* Three image containers (use 25% for four, and 50% for two, etc) */
+        .column {
+          float: left;
+          width: 33.33%;
+        }
+        
+        /* Clear floats after image containers */
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }</style>
+      
+    <h1><u>Issues in coding</u></h1>
+    <p style="font-size: 22px;">The kosaraju algorithm implementation was pretty straight forward.The major issues we faced were during the implementation of DCSC Algorithm.We wanted to take advantage of properties of sets in C++ but as we moved forward with this approach,we were facing isuues with overloading of functions of sets such as intersection and difference.So we again implemented the algorithm from scratch this time using vectors as it will give us an array of functions to make use of.Also we faced some issues in the visualization part where we were unable to show strongly connected components in the same image file.</p><br>
+
+    <h1><u>Discussion on Algorithms</u></h1>
+    <h2><u>Kosaraju's Algorithm</u></h2>
+    <p style="font-size: 22px;">In <u>Kosaraju's algorithm</u> we run algorithm in 3 broad steps i.e, creation of a stack(empty) and pushing the vertices to the stack after calling the adjacent vertices of a vertex using dfs. Next we take the transpose of the current graph and start popping the vertices of the stack and run dfs during each popping vertex(each dfs gives a scc(repeated vertices are ignored while popping)).</p><br>
+
+    <h2><u>DCSC Algorithm</u></h2>
+    <p style="font-size: 22px;">Following that, we used <u>DCSC Algorithm</u> which was run in a recursive loop with a random vertex choosen in graph. Upon finding a random vertex the descendants and predecessors are found out w.r.t the vertex. The intersection of the descendants and predecessors is printed out since it is a strongly connected component. And the algorithm is repeated recursively to the other 3 parts of the graph i.e,({predecessors - scc} , {descendants - scc} , {graph - predecessors U descendants}).</p>
+    <br>
+
+    <h1><u>Timing Analysis</u></h1>
+    <p style="font-size: 22px;">we obtained our solution of strongly connected components in O(V+E) by applying kosaraju algorithm.<br>Following that, we used <u>DCSC Algorithm</u>The time complexity of the algoirthm is O(ElogV + V).<br><br>The largetestcase1 gave output in 0.02329s using Kosaraju Algorithm and in 24.84424s using DCSC Algorithm.The largetestcase1 gave output in 0.02510s using Kosaraju Algorithm and in 49.41753s using DCSC Algorithm.<br><br>The DCSC Algorithm Should take o(ElogV+V) complexity compared to o(V+E) complexity of Kosaraju Algorithm which is similar to the output times that we got.</p><br>
+
+    <h1><u>Remarks</u></h1><br>
+    <p></p>
+</body>

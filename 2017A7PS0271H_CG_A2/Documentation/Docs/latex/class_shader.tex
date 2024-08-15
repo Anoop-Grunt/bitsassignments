@@ -1,0 +1,97 @@
+\hypertarget{class_shader}{}\doxysection{Shader Class Reference}
+\label{class_shader}\index{Shader@{Shader}}
+
+
+{\ttfamily \#include $<$Shader.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shader_a723ccb160694ce83183aff4a8daca0d0}{Shader}} (const std\+::string \&filepath)
+\item 
+\mbox{\Hypertarget{class_shader_aff01df87e8a102f270b5b135a295e59d}\label{class_shader_aff01df87e8a102f270b5b135a295e59d}} 
+\mbox{\hyperlink{class_shader_aff01df87e8a102f270b5b135a295e59d}{$\sim$\+Shader}} ()
+\begin{DoxyCompactList}\small\item\em The default destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shader_a5a5a24f72050f46f03cb839b41490527}\label{class_shader_a5a5a24f72050f46f03cb839b41490527}} 
+void \mbox{\hyperlink{class_shader_a5a5a24f72050f46f03cb839b41490527}{Bind}} () const
+\begin{DoxyCompactList}\small\item\em A wrapper around the gl\+Use\+Program function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shader_aebfe8baf7c63c605e0ed429085a4e06a}\label{class_shader_aebfe8baf7c63c605e0ed429085a4e06a}} 
+void \mbox{\hyperlink{class_shader_aebfe8baf7c63c605e0ed429085a4e06a}{Unbind}} () const
+\begin{DoxyCompactList}\small\item\em Unbinds the shader program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_a165303e490b9142cd6575c81a5e1684e}{set\+Uniform4f}} (const std\+::string \&name, float f1, float f2, float f3, float f4)
+\item 
+void \mbox{\hyperlink{class_shader_a63da25edbee084769aef91263746821a}{set\+Uniform4mat4f}} (const std\+::string \&name, const glm\+::mat4 matrix)
+\item 
+void \mbox{\hyperlink{class_shader_aba42a97062bfc708ce7f470dc8f468a2}{set\+Uniformfloat}} (const std\+::string \&name, const float f1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A wrapper class around the gl\+Shader\+Program type Only suppoerts vertex and fragment shaders 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shader_a723ccb160694ce83183aff4a8daca0d0}\label{class_shader_a723ccb160694ce83183aff4a8daca0d0}} 
+\index{Shader@{Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}}
+{\footnotesize\ttfamily Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath }\end{DoxyParamCaption})}
+
+The constructor for the class. The shaders need to be in a single file, the vertex shader source should start with \#vertex shader, and fragment shader needs to start with \#fragment shader 
+\begin{DoxyParams}{Parameters}
+{\em filepath} & a string specifying the path to the file containing the source codes for the shaders \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shader_a165303e490b9142cd6575c81a5e1684e}\label{class_shader_a165303e490b9142cd6575c81a5e1684e}} 
+\index{Shader@{Shader}!setUniform4f@{setUniform4f}}
+\index{setUniform4f@{setUniform4f}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setUniform4f()}{setUniform4f()}}
+{\footnotesize\ttfamily void Shader\+::set\+Uniform4f (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{float}]{f1,  }\item[{float}]{f2,  }\item[{float}]{f3,  }\item[{float}]{f4 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the uniform in the shader source \\
+\hline
+{\em f1} & the x component of the vec4 \\
+\hline
+{\em f2} & the y component of the vec4 \\
+\hline
+{\em f3} & the z component the vec4 \\
+\hline
+{\em f4} & the w component of the vec4\\
+\hline
+\end{DoxyParams}
+Used to send a uniform of vec4 to the shader program \mbox{\Hypertarget{class_shader_a63da25edbee084769aef91263746821a}\label{class_shader_a63da25edbee084769aef91263746821a}} 
+\index{Shader@{Shader}!setUniform4mat4f@{setUniform4mat4f}}
+\index{setUniform4mat4f@{setUniform4mat4f}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setUniform4mat4f()}{setUniform4mat4f()}}
+{\footnotesize\ttfamily void Shader\+::set\+Uniform4mat4f (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::mat4}]{matrix }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the uniform in the shader source \\
+\hline
+{\em matrix} & a glm\+::mat4 object\\
+\hline
+\end{DoxyParams}
+Used to send a mat4 uniform vaeiable to the shader \mbox{\Hypertarget{class_shader_aba42a97062bfc708ce7f470dc8f468a2}\label{class_shader_aba42a97062bfc708ce7f470dc8f468a2}} 
+\index{Shader@{Shader}!setUniformfloat@{setUniformfloat}}
+\index{setUniformfloat@{setUniformfloat}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setUniformfloat()}{setUniformfloat()}}
+{\footnotesize\ttfamily void Shader\+::set\+Uniformfloat (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const float}]{f1 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the uniform in the shader soruce \\
+\hline
+{\em f1} & the float value of the uniform variable\\
+\hline
+\end{DoxyParams}
+Used to send a float uniform to the shader 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Shader.\+h\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Shader.\+cpp\end{DoxyCompactItemize}

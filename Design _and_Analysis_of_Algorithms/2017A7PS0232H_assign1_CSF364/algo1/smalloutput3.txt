@@ -1,0 +1,7 @@
+The strongly connected components 
+Standard Algorithm :- 
+0 1 4
+2 3 7
+5 6
+End of Program
+Exeuction Time : 0.00012s

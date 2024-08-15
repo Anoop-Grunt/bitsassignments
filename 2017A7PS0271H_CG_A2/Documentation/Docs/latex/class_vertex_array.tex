@@ -1,0 +1,122 @@
+\hypertarget{class_vertex_array}{}\doxysection{Vertex\+Array Class Reference}
+\label{class_vertex_array}\index{VertexArray@{VertexArray}}
+
+
+{\ttfamily \#include $<$vert\+\_\+array\+\_\+quick\+\_\+bind.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vertex_array_ab8a2dcce9698f96dac5f9a19c6979d03}{Vertex\+Array}} ()
+\item 
+\mbox{\hyperlink{class_vertex_array_a82597eb9daba5ad66dd3cf898e159a95}{$\sim$\+Vertex\+Array}} ()
+\item 
+void \mbox{\hyperlink{class_vertex_array_a00350d985050d3a04ad2c6b518f4d08d}{Add\+Buffer}} (const \mbox{\hyperlink{class_vertex_buffer}{Vertex\+Buffer}} vb)
+\item 
+void \mbox{\hyperlink{class_vertex_array_ad5059455f0864327028636c628d5a661}{Bind}} () const
+\item 
+void \mbox{\hyperlink{class_vertex_array_a73f0d868a6c76622bcd57063a2c2d8d4}{Unbind}} () const
+\item 
+void \mbox{\hyperlink{class_vertex_array_a057b82f0031fa1db17e8f2c90dcb477c}{add\+\_\+layout\+\_\+spec}} (int floats\+\_\+per\+\_\+vert\+\_\+attr)
+\item 
+void \mbox{\hyperlink{class_vertex_array_a5fbe1d65475188b019dc7b5665522028}{spec\+\_\+vertex\+\_\+size}} (int floats\+\_\+per\+\_\+vert)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_vertex_array_ae6778ca78c5216837e98d7acc3f940c0}\label{class_vertex_array_ae6778ca78c5216837e98d7acc3f940c0}} 
+unsigned int \mbox{\hyperlink{class_vertex_array_ae6778ca78c5216837e98d7acc3f940c0}{m\+\_\+renderer\+ID}}
+\begin{DoxyCompactList}\small\item\em Stores the index of the associated vertex array object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_array_adcafe6b1062dd8ea5ac5fe60848d796a}\label{class_vertex_array_adcafe6b1062dd8ea5ac5fe60848d796a}} 
+unsigned int \mbox{\hyperlink{class_vertex_array_adcafe6b1062dd8ea5ac5fe60848d796a}{last\+\_\+index}}
+\begin{DoxyCompactList}\small\item\em Used internally while specifying layouts, to calculate the offsets. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_array_a1b9e0ad18f750199522674816d848962}\label{class_vertex_array_a1b9e0ad18f750199522674816d848962}} 
+unsigned int \mbox{\hyperlink{class_vertex_array_a1b9e0ad18f750199522674816d848962}{vertex\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em Used internally while specifying layouts, to calculate the strides. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_array_a614de3dff078c01d25805cc9c109a911}\label{class_vertex_array_a614de3dff078c01d25805cc9c109a911}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_vertex_array_a614de3dff078c01d25805cc9c109a911}{layouts}}
+\begin{DoxyCompactList}\small\item\em A vector containing the sizes of all the vertex attributes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_vertex_array_a7371f79a436f7215f83d413ceae44466}{offset}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A wrapper class around the gl\+Vertex\+Array\+Object type. Unlike older versions G\+PU memory management has to be handled by the programmer 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vertex_array_ab8a2dcce9698f96dac5f9a19c6979d03}\label{class_vertex_array_ab8a2dcce9698f96dac5f9a19c6979d03}} 
+\index{VertexArray@{VertexArray}!VertexArray@{VertexArray}}
+\index{VertexArray@{VertexArray}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{VertexArray()}{VertexArray()}}
+{\footnotesize\ttfamily Vertex\+Array\+::\+Vertex\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The constructor for the class Automatically creates a vertex array object with the first available index , and binds it to the G\+L\+\_\+\+V\+E\+R\+T\+E\+X\+\_\+\+A\+R\+R\+AY target \mbox{\Hypertarget{class_vertex_array_a82597eb9daba5ad66dd3cf898e159a95}\label{class_vertex_array_a82597eb9daba5ad66dd3cf898e159a95}} 
+\index{VertexArray@{VertexArray}!````~VertexArray@{$\sim$VertexArray}}
+\index{````~VertexArray@{$\sim$VertexArray}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{$\sim$VertexArray()}{~VertexArray()}}
+{\footnotesize\ttfamily Vertex\+Array\+::$\sim$\+Vertex\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor Note that this doesn\textquotesingle{}t handle gpu memory management 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vertex_array_a057b82f0031fa1db17e8f2c90dcb477c}\label{class_vertex_array_a057b82f0031fa1db17e8f2c90dcb477c}} 
+\index{VertexArray@{VertexArray}!add\_layout\_spec@{add\_layout\_spec}}
+\index{add\_layout\_spec@{add\_layout\_spec}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{add\_layout\_spec()}{add\_layout\_spec()}}
+{\footnotesize\ttfamily void Vertex\+Array\+::add\+\_\+layout\+\_\+spec (\begin{DoxyParamCaption}\item[{int}]{floats\+\_\+per\+\_\+vert\+\_\+attr }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em floats\+\_\+per\+\_\+vert\+\_\+attr} & The number of float values needed to specify the vertex attribute.\\
+\hline
+\end{DoxyParams}
+Adds another vertex attribute to the layout, the attributes need to be specifed in sequence, and need to be stored in a contiguous manner in the vertex buffer, because offset and stride values are calulated on the fly internally ~\newline
+ \mbox{\Hypertarget{class_vertex_array_a00350d985050d3a04ad2c6b518f4d08d}\label{class_vertex_array_a00350d985050d3a04ad2c6b518f4d08d}} 
+\index{VertexArray@{VertexArray}!AddBuffer@{AddBuffer}}
+\index{AddBuffer@{AddBuffer}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{AddBuffer()}{AddBuffer()}}
+{\footnotesize\ttfamily void Vertex\+Array\+::\+Add\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vertex_buffer}{Vertex\+Buffer}}}]{vb }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vb} & The vertex buffer object whose binding will be stored in the associated vertex array object\\
+\hline
+\end{DoxyParams}
+Binds the vertex buffer to the V\+AO , and caches the binding \mbox{\Hypertarget{class_vertex_array_ad5059455f0864327028636c628d5a661}\label{class_vertex_array_ad5059455f0864327028636c628d5a661}} 
+\index{VertexArray@{VertexArray}!Bind@{Bind}}
+\index{Bind@{Bind}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void Vertex\+Array\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Binds the associated vertex array object to the G\+L\+\_\+\+V\+E\+R\+T\+E\+X\+\_\+\+A\+R\+R\+AY target, Use before issuing draw call \mbox{\Hypertarget{class_vertex_array_a5fbe1d65475188b019dc7b5665522028}\label{class_vertex_array_a5fbe1d65475188b019dc7b5665522028}} 
+\index{VertexArray@{VertexArray}!spec\_vertex\_size@{spec\_vertex\_size}}
+\index{spec\_vertex\_size@{spec\_vertex\_size}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{spec\_vertex\_size()}{spec\_vertex\_size()}}
+{\footnotesize\ttfamily void Vertex\+Array\+::spec\+\_\+vertex\+\_\+size (\begin{DoxyParamCaption}\item[{int}]{floats\+\_\+per\+\_\+vert }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em floats\+\_\+per\+\_\+vert} & the number of float values need to specify all the vertex attributes\\
+\hline
+\end{DoxyParams}
+Used to calculate the offset, and stride internally \mbox{\Hypertarget{class_vertex_array_a73f0d868a6c76622bcd57063a2c2d8d4}\label{class_vertex_array_a73f0d868a6c76622bcd57063a2c2d8d4}} 
+\index{VertexArray@{VertexArray}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void Vertex\+Array\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Unbinds the associated vertex array object Use after the draw call has been issued 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_vertex_array_a7371f79a436f7215f83d413ceae44466}\label{class_vertex_array_a7371f79a436f7215f83d413ceae44466}} 
+\index{VertexArray@{VertexArray}!offset@{offset}}
+\index{offset@{offset}!VertexArray@{VertexArray}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily int Vertex\+Array\+::offset}
+
+The offset to the vertex attribute in the vertex spec Used internally while specifying layouts 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/vert\+\_\+array\+\_\+quick\+\_\+bind.\+h\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/vert\+\_\+array\+\_\+quick\+\_\+bind.\+cpp\end{DoxyCompactItemize}

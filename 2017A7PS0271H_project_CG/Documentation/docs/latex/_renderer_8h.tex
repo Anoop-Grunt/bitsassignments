@@ -1,0 +1,47 @@
+\hypertarget{_renderer_8h}{}\doxysection{D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/\+Renderer.h File Reference}
+\label{_renderer_8h}\index{D:/ComputerGraphics/testing-\/things-\/master/src/Renderer.h@{D:/ComputerGraphics/testing-\/things-\/master/src/Renderer.h}}
+{\ttfamily \#include $<$G\+L/glew.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_renderer_8h_aca68c0d4ac8df0838e209fb5300f7be3}{A\+S\+S\+E\+RT}}(x)~if(!(x))\+\_\+\+\_\+debugbreak();
+\item 
+\#define \mbox{\hyperlink{_renderer_8h_afc69b9cf238520aef3e894ccc6e93f09}{gl\+Call}}(x)~\mbox{\hyperlink{_renderer_8h_a6103a9a9cceabf330103f2502f088649}{G\+L\+Clear\+Error}}();x;\mbox{\hyperlink{_renderer_8h_aca68c0d4ac8df0838e209fb5300f7be3}{A\+S\+S\+E\+RT}}(\mbox{\hyperlink{_renderer_8h_a9fc16156f6b4f527ee2da9fa354ebe7d}{G\+L\+Log\+Call}}(\#x,\+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+,\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+));
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_renderer_8h_a6103a9a9cceabf330103f2502f088649}{G\+L\+Clear\+Error}} ()
+\item 
+bool \mbox{\hyperlink{_renderer_8h_a9fc16156f6b4f527ee2da9fa354ebe7d}{G\+L\+Log\+Call}} (const char $\ast$funct, const char $\ast$file, int line)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_renderer_8h_aca68c0d4ac8df0838e209fb5300f7be3}\label{_renderer_8h_aca68c0d4ac8df0838e209fb5300f7be3}} 
+\index{Renderer.h@{Renderer.h}!ASSERT@{ASSERT}}
+\index{ASSERT@{ASSERT}!Renderer.h@{Renderer.h}}
+\doxysubsubsection{\texorpdfstring{ASSERT}{ASSERT}}
+{\footnotesize\ttfamily \#define A\+S\+S\+E\+RT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~if(!(x))\+\_\+\+\_\+debugbreak();}
+
+\mbox{\Hypertarget{_renderer_8h_afc69b9cf238520aef3e894ccc6e93f09}\label{_renderer_8h_afc69b9cf238520aef3e894ccc6e93f09}} 
+\index{Renderer.h@{Renderer.h}!glCall@{glCall}}
+\index{glCall@{glCall}!Renderer.h@{Renderer.h}}
+\doxysubsubsection{\texorpdfstring{glCall}{glCall}}
+{\footnotesize\ttfamily \#define gl\+Call(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{_renderer_8h_a6103a9a9cceabf330103f2502f088649}{G\+L\+Clear\+Error}}();x;\mbox{\hyperlink{_renderer_8h_aca68c0d4ac8df0838e209fb5300f7be3}{A\+S\+S\+E\+RT}}(\mbox{\hyperlink{_renderer_8h_a9fc16156f6b4f527ee2da9fa354ebe7d}{G\+L\+Log\+Call}}(\#x,\+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+,\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+));}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_renderer_8h_a6103a9a9cceabf330103f2502f088649}\label{_renderer_8h_a6103a9a9cceabf330103f2502f088649}} 
+\index{Renderer.h@{Renderer.h}!GLClearError@{GLClearError}}
+\index{GLClearError@{GLClearError}!Renderer.h@{Renderer.h}}
+\doxysubsubsection{\texorpdfstring{GLClearError()}{GLClearError()}}
+{\footnotesize\ttfamily void G\+L\+Clear\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_renderer_8h_a9fc16156f6b4f527ee2da9fa354ebe7d}\label{_renderer_8h_a9fc16156f6b4f527ee2da9fa354ebe7d}} 
+\index{Renderer.h@{Renderer.h}!GLLogCall@{GLLogCall}}
+\index{GLLogCall@{GLLogCall}!Renderer.h@{Renderer.h}}
+\doxysubsubsection{\texorpdfstring{GLLogCall()}{GLLogCall()}}
+{\footnotesize\ttfamily bool G\+L\+Log\+Call (\begin{DoxyParamCaption}\item[{const char $\ast$}]{funct,  }\item[{const char $\ast$}]{file,  }\item[{int}]{line }\end{DoxyParamCaption})}
+

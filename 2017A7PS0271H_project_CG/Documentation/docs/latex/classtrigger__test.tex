@@ -1,0 +1,54 @@
+\hypertarget{classtrigger__test}{}\doxysection{trigger\+\_\+test Class Reference}
+\label{classtrigger__test}\index{trigger\_test@{trigger\_test}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classtrigger__test_a48782711e87457e08e3d9067fae36493}{trigger\+\_\+test}} ()
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classtrigger__test_a362a017546af2cc8774c63f1a642e46b}{$\sim$trigger\+\_\+test}} ()
+\item 
+virtual \+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classtrigger__test_afee59cdbb47d597cc566e632bc957793}{hit}} (\mbox{\hyperlink{classray}{ray}} r, float t\+\_\+min, float t\+\_\+max, \mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} rec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+Lass used to test if a ray intersects a sphere. Contaians methods that allow to check if a given ray intersects a sphere based on the \mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} provided. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtrigger__test_a48782711e87457e08e3d9067fae36493}\label{classtrigger__test_a48782711e87457e08e3d9067fae36493}} 
+\index{trigger\_test@{trigger\_test}!trigger\_test@{trigger\_test}}
+\index{trigger\_test@{trigger\_test}!trigger\_test@{trigger\_test}}
+\doxysubsubsection{\texorpdfstring{trigger\_test()}{trigger\_test()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ trigger\+\_\+test\+::trigger\+\_\+test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The constructor for the class, the {\bfseries{device}} declspec\+\_\+\+\_\+ means that the constructor can only be called on the G\+PU. \mbox{\Hypertarget{classtrigger__test_a362a017546af2cc8774c63f1a642e46b}\label{classtrigger__test_a362a017546af2cc8774c63f1a642e46b}} 
+\index{trigger\_test@{trigger\_test}!````~trigger\_test@{$\sim$trigger\_test}}
+\index{````~trigger\_test@{$\sim$trigger\_test}!trigger\_test@{trigger\_test}}
+\doxysubsubsection{\texorpdfstring{$\sim$trigger\_test()}{~trigger\_test()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ trigger\+\_\+test\+::$\sim$trigger\+\_\+test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor, N\+V\+CC generates the object code which frees up heap memory on the G\+PU. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtrigger__test_afee59cdbb47d597cc566e632bc957793}\label{classtrigger__test_afee59cdbb47d597cc566e632bc957793}} 
+\index{trigger\_test@{trigger\_test}!hit@{hit}}
+\index{hit@{hit}!trigger\_test@{trigger\_test}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily virtual \+\_\+\+\_\+device\+\_\+\+\_\+ bool trigger\+\_\+test\+::hit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classray}{ray}}}]{r,  }\item[{float}]{t\+\_\+min,  }\item[{float}]{t\+\_\+max,  }\item[{\mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}}}]{rec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & The ray object with which the hit test is to be performed \\
+\hline
+{\em t\+\_\+min} & The minimum value for the t parameter, used to avoid negative t values, and to accomodate for floating point errors \\
+\hline
+{\em t\+\_\+max} & The maximum value for the t\+\_\+prameter, use so that the ray doesn\textquotesingle{}t continue indefinitely. \\
+\hline
+{\em rec} & A \mbox{\hyperlink{structsphere__hit__details}{sphere\+\_\+hit\+\_\+details}} struct object, contains the details of the hit record.\\
+\hline
+\end{DoxyParams}
+Returns true if the ray hits the sphere, also modifies the value of the hit record appropriately. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/ray\+\_\+trigger.\+cuh\end{DoxyCompactItemize}

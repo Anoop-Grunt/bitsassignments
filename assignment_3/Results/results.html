@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <nav class="purple">
+       
+    <div class="nav-wrapper">
+      <a href="#" data-target="slide-out" class="brand-logo center" >Computer Graphics Assignment 2</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        
+      </ul>
+    </div>
+  </nav>
+  <body>
+    <div class="container">
+    <h4 class="center-align">
+        Team
+    </h4>
+    <table class="highlight" >
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>ID Number</th>
+             
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>K Venkat Anoop</td>
+            <td>2017A7PS0271H</td>
+           
+          </tr>
+          <tr>
+            <td>M Trinadh</td>
+            <td>2017A7PS0061H</td>
+            
+          </tr>
+          <tr>
+            <td>C Mahesh Babu</td>
+            <td>2017A7PS0235H</td>
+            
+          </tr>
+        </tbody>
+    </table>
+    
+    <h4 class="center-align">
+        De Castlejaus Algorithm
+    </h4> 
+    <p class="flow-text">
+        In this algorithm, we recursively eliminate control points by lrep function. we will do this until we get one final point.
+        <img src = "media/decasteljau.png"
+    </p>
+        <h4 class="center-align">
+            Final Results 
+        </h4> 
+        <p class="flow-text">
+           this is the video of the final result.
+        </p>
+        <div class="video-container">
+            <iframe width="853" height="480" src="media/scene_preview_1.mp4" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <h4 class="center-align">
+            Final Note
+        </h4> 
+        <p class="flow-text">
+          library "GL/freeglut.h" is used for openGL. we use function glutMouseFunc() for the interaction with mouse. on right click of mouse, we will add controlpoint to the curve and on left click of mouse, we will remove controlpoint from the curve. middle button to move control point on the screen.
+        </p>
+    </div>
+  </body>
+</html>
+      

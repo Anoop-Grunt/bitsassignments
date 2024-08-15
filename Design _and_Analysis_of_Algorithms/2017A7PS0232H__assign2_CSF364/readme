@@ -1,0 +1,20 @@
+Group Details:
+    2017A7PS0232H MADDI SUHAS GUPTHA
+    2017A7PS0160H PRASANTH VUDDAGIRI
+    2017A7PS0228H PITTALA TRINATH SAI SUBHASH REDDY
+    2017A7PS0271H KARLAPUDI VENKAT ANOOP
+
+Format for test cases for maxflow case of normal ford fulkerson is :
+    no.of vertices, no.of edges
+    source,sink
+    vertex1,vertex2,flow between vertices
+
+Format for test cases for maxxflow case of bipartite graph ford fulkerson is :
+    no.of vertices in M-set , no.of vertices in N-set , no.of edges between them
+    vertex in M-set , vertex in N-set
+
+Caution: Dont use "0" as vertex in either cases and use all intergers consecutively i.e use all integers b/w (m,n) given m,n are integers
+
+Depending on the no.of vertices change 'V' variable in code accordingly (for bipartite V > no.of vertices in M-set + no.of vertices in N-set + 1)
+
+The input and output files should be changed in the code.

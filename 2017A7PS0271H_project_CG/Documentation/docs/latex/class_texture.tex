@@ -1,0 +1,85 @@
+\hypertarget{class_texture}{}\doxysection{Texture Class Reference}
+\label{class_texture}\index{Texture@{Texture}}
+
+
+{\ttfamily \#include $<$Texture.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}} ()
+\item 
+\mbox{\hyperlink{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{$\sim$\+Texture}} ()
+\item 
+void \mbox{\hyperlink{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}{Bind}} ()
+\item 
+void \mbox{\hyperlink{class_texture_a9a1a4a09cb4a06b5fd24188f6886a932}{Unbind}} ()
+\item 
+void \mbox{\hyperlink{class_texture_a6dd1fba76d531c466602847a22aff94f}{add\+Image}} (const char $\ast$path)
+\item 
+void \mbox{\hyperlink{class_texture_a6790068e35b6974d1f306fee5f65d84d}{use\+\_\+pbo}} (int width, int height)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstraction over the Open\+GL specification G\+L\+Texture2D, Only works with low dynamic range R\+G\+B8 type textures. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_a6c275e3f186675ff6ed73ccf970e552f}\label{class_texture_a6c275e3f186675ff6ed73ccf970e552f}} 
+\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}}
+{\footnotesize\ttfamily Texture\+::\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The constructor for the class \mbox{\Hypertarget{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}\label{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}} 
+\index{Texture@{Texture}!````~Texture@{$\sim$Texture}}
+\index{````~Texture@{$\sim$Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{$\sim$Texture()}{~Texture()}}
+{\footnotesize\ttfamily Texture\+::$\sim$\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_a6dd1fba76d531c466602847a22aff94f}\label{class_texture_a6dd1fba76d531c466602847a22aff94f}} 
+\index{Texture@{Texture}!addImage@{addImage}}
+\index{addImage@{addImage}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{addImage()}{addImage()}}
+{\footnotesize\ttfamily void Texture\+::add\+Image (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the pointer to the character array containing the sequential R\+G\+B8 bytes of the image.\\
+\hline
+\end{DoxyParams}
+Generates the Mip\+Map from the image \mbox{\Hypertarget{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}\label{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}} 
+\index{Texture@{Texture}!Bind@{Bind}}
+\index{Bind@{Bind}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void Texture\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Binds the associated texture to the G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+2D slot1. Use this before issuing the draw call. \mbox{\Hypertarget{class_texture_a9a1a4a09cb4a06b5fd24188f6886a932}\label{class_texture_a9a1a4a09cb4a06b5fd24188f6886a932}} 
+\index{Texture@{Texture}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void Texture\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unbinds the texture from the G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+2D slot and rebinds the originally bound texture . Use this after issuing the draw call. \mbox{\Hypertarget{class_texture_a6790068e35b6974d1f306fee5f65d84d}\label{class_texture_a6790068e35b6974d1f306fee5f65d84d}} 
+\index{Texture@{Texture}!use\_pbo@{use\_pbo}}
+\index{use\_pbo@{use\_pbo}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{use\_pbo()}{use\_pbo()}}
+{\footnotesize\ttfamily void Texture\+::use\+\_\+pbo (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the texture. \\
+\hline
+{\em height} & The height of texture.\\
+\hline
+\end{DoxyParams}
+In case the texture is to be calculated, then the pixel buffer object needs to hold the texdata, and the texture will read from here. The use\+\_\+pbo function facilitates exactly that. ~\newline
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/Texture.\+h\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/Texture.\+cpp\end{DoxyCompactItemize}

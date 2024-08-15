@@ -1,0 +1,78 @@
+\hypertarget{class_index_buffer}{}\doxysection{Index\+Buffer Class Reference}
+\label{class_index_buffer}\index{IndexBuffer@{IndexBuffer}}
+
+
+{\ttfamily \#include $<$Index\+Buffer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_index_buffer_aa62b83970f954463fe7bf1e4954c3177}{Index\+Buffer}} (const unsigned int $\ast$data, unsigned int count)
+\item 
+\mbox{\hyperlink{class_index_buffer_a348889936f378b7942c1e01d83e42866}{$\sim$\+Index\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{class_index_buffer_ac8bdd0495f718173fb46691ad1b7e4af}{Bind}} () const
+\item 
+void \mbox{\hyperlink{class_index_buffer_a5a1cfc46339ea7d6e72d22a096da5a77}{Unbind}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_index_buffer_af3cf5177ad9904da31846f59535b53d3}{get\+Count}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_index_buffer_a9c53bc26aef909a6f8427fc057a4f1d2}\label{class_index_buffer_a9c53bc26aef909a6f8427fc057a4f1d2}} 
+unsigned int \mbox{\hyperlink{class_index_buffer_a9c53bc26aef909a6f8427fc057a4f1d2}{m\+\_\+\+Renderer\+ID}}
+\begin{DoxyCompactList}\small\item\em Stores the index of the associated element buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class around the gl\+Element\+Buffer type. Creates an element buffer with the given indices,the index of the element buffer is automatically generated ~\newline
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_index_buffer_aa62b83970f954463fe7bf1e4954c3177}\label{class_index_buffer_aa62b83970f954463fe7bf1e4954c3177}} 
+\index{IndexBuffer@{IndexBuffer}!IndexBuffer@{IndexBuffer}}
+\index{IndexBuffer@{IndexBuffer}!IndexBuffer@{IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{IndexBuffer()}{IndexBuffer()}}
+{\footnotesize\ttfamily Index\+Buffer\+::\+Index\+Buffer (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{data,  }\item[{unsigned int}]{count }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & pointer to the segment of contiguous memory of indices \\
+\hline
+{\em count} & Number of indices\\
+\hline
+\end{DoxyParams}
+The constructor for the class \mbox{\Hypertarget{class_index_buffer_a348889936f378b7942c1e01d83e42866}\label{class_index_buffer_a348889936f378b7942c1e01d83e42866}} 
+\index{IndexBuffer@{IndexBuffer}!````~IndexBuffer@{$\sim$IndexBuffer}}
+\index{````~IndexBuffer@{$\sim$IndexBuffer}!IndexBuffer@{IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{$\sim$IndexBuffer()}{~IndexBuffer()}}
+{\footnotesize\ttfamily Index\+Buffer\+::$\sim$\+Index\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor, unlike older versions this doesn\textquotesingle{}t handle G\+PU memory management, so correctness is traded for speed 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_index_buffer_ac8bdd0495f718173fb46691ad1b7e4af}\label{class_index_buffer_ac8bdd0495f718173fb46691ad1b7e4af}} 
+\index{IndexBuffer@{IndexBuffer}!Bind@{Bind}}
+\index{Bind@{Bind}!IndexBuffer@{IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void Index\+Buffer\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Binds the associated index buffer to the gl\+Element\+Array\+Buffer target Use when drawing with gl\+Draw\+Elements \mbox{\Hypertarget{class_index_buffer_af3cf5177ad9904da31846f59535b53d3}\label{class_index_buffer_af3cf5177ad9904da31846f59535b53d3}} 
+\index{IndexBuffer@{IndexBuffer}!getCount@{getCount}}
+\index{getCount@{getCount}!IndexBuffer@{IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{getCount()}{getCount()}}
+{\footnotesize\ttfamily unsigned int Index\+Buffer\+::get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the number of indices in the associated index buffer Generally used only for debugging \mbox{\Hypertarget{class_index_buffer_a5a1cfc46339ea7d6e72d22a096da5a77}\label{class_index_buffer_a5a1cfc46339ea7d6e72d22a096da5a77}} 
+\index{IndexBuffer@{IndexBuffer}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!IndexBuffer@{IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void Index\+Buffer\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Unbinds the associated index buffer Use after the draw call hgas been issued 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Index\+Buffer.\+h\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Index\+Buffer.\+cpp\end{DoxyCompactItemize}

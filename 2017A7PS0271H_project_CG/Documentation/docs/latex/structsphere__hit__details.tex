@@ -1,0 +1,87 @@
+\hypertarget{structsphere__hit__details}{}\doxysection{sphere\+\_\+hit\+\_\+details Struct Reference}
+\label{structsphere__hit__details}\index{sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ void \mbox{\hyperlink{structsphere__hit__details_a89c81615cfb00027fdfe705cde39197e}{orient\+\_\+normal}} (\mbox{\hyperlink{classray}{ray}} r, const vec3 point\+\_\+out)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{structsphere__hit__details_a520fd65c2f4596c2211e017c45d15036}{t}}
+\item 
+vec3 \mbox{\hyperlink{structsphere__hit__details_a0c3df0ae99db3becf4330dbfca26dbb1}{p}}
+\item 
+vec3 \mbox{\hyperlink{structsphere__hit__details_a0174d651abb4559bf9d259ee7658d3d7}{normal}}
+\item 
+bool \mbox{\hyperlink{structsphere__hit__details_ace2ad263a2313b3d9c9b8daeaec27176}{front\+\_\+face}}
+\item 
+vec3 \mbox{\hyperlink{structsphere__hit__details_a98ad29d9bd148183e068add5412e0def}{albedo}}
+\item 
+mat\+\_\+type \mbox{\hyperlink{structsphere__hit__details_af24093461c4a3caed6254d78b76deb05}{type}}
+\item 
+float \mbox{\hyperlink{structsphere__hit__details_a76d73ffeac8c43bc19965388f8b3b82f}{ref\+\_\+ind}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct returned when a ray intersects with an object in the scene, used to color the pixels appropriately. This class is not used in the final version of the project, because only spheres were used. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structsphere__hit__details_a89c81615cfb00027fdfe705cde39197e}\label{structsphere__hit__details_a89c81615cfb00027fdfe705cde39197e}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!orient\_normal@{orient\_normal}}
+\index{orient\_normal@{orient\_normal}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{orient\_normal()}{orient\_normal()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ void sphere\+\_\+hit\+\_\+details\+::orient\+\_\+normal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classray}{ray}}}]{r,  }\item[{const vec3}]{point\+\_\+out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Orients the normal outwards always, the {\bfseries{device}} declspec maintains that the function is compiled only for the G\+PU. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structsphere__hit__details_a98ad29d9bd148183e068add5412e0def}\label{structsphere__hit__details_a98ad29d9bd148183e068add5412e0def}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!albedo@{albedo}}
+\index{albedo@{albedo}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{albedo}{albedo}}
+{\footnotesize\ttfamily vec3 sphere\+\_\+hit\+\_\+details\+::albedo}
+
+A glm\+::vec3 object that holds the diffuse color, or the matte color of the sphere. \mbox{\Hypertarget{structsphere__hit__details_ace2ad263a2313b3d9c9b8daeaec27176}\label{structsphere__hit__details_ace2ad263a2313b3d9c9b8daeaec27176}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!front\_face@{front\_face}}
+\index{front\_face@{front\_face}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{front\_face}{front\_face}}
+{\footnotesize\ttfamily bool sphere\+\_\+hit\+\_\+details\+::front\+\_\+face}
+
+A boolean representing is the intersection point is inside or outside the sphere, this is required for refraction. \mbox{\Hypertarget{structsphere__hit__details_a0174d651abb4559bf9d259ee7658d3d7}\label{structsphere__hit__details_a0174d651abb4559bf9d259ee7658d3d7}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!normal@{normal}}
+\index{normal@{normal}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{normal}{normal}}
+{\footnotesize\ttfamily vec3 sphere\+\_\+hit\+\_\+details\+::normal}
+
+A glm\+::vec3 object of the sphere normal at the point where the ray intersects the sphere. \mbox{\Hypertarget{structsphere__hit__details_a0c3df0ae99db3becf4330dbfca26dbb1}\label{structsphere__hit__details_a0c3df0ae99db3becf4330dbfca26dbb1}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!p@{p}}
+\index{p@{p}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily vec3 sphere\+\_\+hit\+\_\+details\+::p}
+
+A glm\+::vec3 object of the intersection point \mbox{\Hypertarget{structsphere__hit__details_a76d73ffeac8c43bc19965388f8b3b82f}\label{structsphere__hit__details_a76d73ffeac8c43bc19965388f8b3b82f}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!ref\_ind@{ref\_ind}}
+\index{ref\_ind@{ref\_ind}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{ref\_ind}{ref\_ind}}
+{\footnotesize\ttfamily float sphere\+\_\+hit\+\_\+details\+::ref\+\_\+ind}
+
+The refrractive index of the material. \mbox{\Hypertarget{structsphere__hit__details_a520fd65c2f4596c2211e017c45d15036}\label{structsphere__hit__details_a520fd65c2f4596c2211e017c45d15036}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!t@{t}}
+\index{t@{t}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily float sphere\+\_\+hit\+\_\+details\+::t}
+
+The parameter t, used to calculate the co-\/ordinates of the intersection point. \mbox{\Hypertarget{structsphere__hit__details_af24093461c4a3caed6254d78b76deb05}\label{structsphere__hit__details_af24093461c4a3caed6254d78b76deb05}} 
+\index{sphere\_hit\_details@{sphere\_hit\_details}!type@{type}}
+\index{type@{type}!sphere\_hit\_details@{sphere\_hit\_details}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily mat\+\_\+type sphere\+\_\+hit\+\_\+details\+::type}
+
+A mat\+\_\+type enum, that is used to identify how the light ray bounces off the sphere. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/ray\+\_\+trigger.\+cuh\item 
+D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/sphere.\+cuh\end{DoxyCompactItemize}

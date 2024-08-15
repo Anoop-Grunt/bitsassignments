@@ -1,0 +1,90 @@
+\hypertarget{classscene__artefact}{}\doxysection{scene\+\_\+artefact Class Reference}
+\label{classscene__artefact}\index{scene\_artefact@{scene\_artefact}}
+
+
+{\ttfamily \#include $<$artefact.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classscene__artefact_a47e6dbed4ed4faa274cf9223530cbc5f}{scene\+\_\+artefact}} (std\+::string const \&path)
+\item 
+\mbox{\hyperlink{classscene__artefact_a931db5c72e76b824ffeea563c82cf771}{$\sim$scene\+\_\+artefact}} ()
+\item 
+void \mbox{\hyperlink{classscene__artefact_aa13bdfc3c058b918c90e484c03a98947}{illustrate}} (\mbox{\hyperlink{class_shader}{Shader}} shader, glm\+::mat4 model)
+\item 
+\mbox{\hyperlink{classmesh__prototype}{mesh\+\_\+prototype}} \mbox{\hyperlink{classscene__artefact_acb7eade8d30876d048359ba369a1578d}{cook}} (std\+::vector$<$ float $>$ v, std\+::vector$<$ unsigned int $>$ i)
+\item 
+void \mbox{\hyperlink{classscene__artefact_afee32fe9de996d548ecad492aa7da740}{quick\+\_\+illustrate\+\_\+unstable}} (\mbox{\hyperlink{class_shader}{Shader}} shader, glm\+::mat4 model)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Any object in the scene, objects are loaded in using assimp Objects can only have materials, not textures, and only the indices, vertices, normals, specular, ambient, diffuse lighting coeffs, and the aplha blending strength are read from the .obj files 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classscene__artefact_a47e6dbed4ed4faa274cf9223530cbc5f}\label{classscene__artefact_a47e6dbed4ed4faa274cf9223530cbc5f}} 
+\index{scene\_artefact@{scene\_artefact}!scene\_artefact@{scene\_artefact}}
+\index{scene\_artefact@{scene\_artefact}!scene\_artefact@{scene\_artefact}}
+\doxysubsubsection{\texorpdfstring{scene\_artefact()}{scene\_artefact()}}
+{\footnotesize\ttfamily scene\+\_\+artefact\+::scene\+\_\+artefact (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{path }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the path to the .obj file\\
+\hline
+\end{DoxyParams}
+The constructor for the class, loads in the model and sets up the meshes(with V\+AO\textquotesingle{}s V\+BO\textquotesingle{}s and E\+BO\textquotesingle{}s) \mbox{\Hypertarget{classscene__artefact_a931db5c72e76b824ffeea563c82cf771}\label{classscene__artefact_a931db5c72e76b824ffeea563c82cf771}} 
+\index{scene\_artefact@{scene\_artefact}!````~scene\_artefact@{$\sim$scene\_artefact}}
+\index{````~scene\_artefact@{$\sim$scene\_artefact}!scene\_artefact@{scene\_artefact}}
+\doxysubsubsection{\texorpdfstring{$\sim$scene\_artefact()}{~scene\_artefact()}}
+{\footnotesize\ttfamily scene\+\_\+artefact\+::$\sim$scene\+\_\+artefact (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor. Note that this version doesn\textquotesingle{}t handle G\+PU memory management, and the programmer needs to delete the V\+AO\textquotesingle{}s that aren\textquotesingle{}t being used to avoid memory overflow in the V\+R\+AM 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene__artefact_acb7eade8d30876d048359ba369a1578d}\label{classscene__artefact_acb7eade8d30876d048359ba369a1578d}} 
+\index{scene\_artefact@{scene\_artefact}!cook@{cook}}
+\index{cook@{cook}!scene\_artefact@{scene\_artefact}}
+\doxysubsubsection{\texorpdfstring{cook()}{cook()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmesh__prototype}{mesh\+\_\+prototype}} scene\+\_\+artefact\+::cook (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{v,  }\item[{std\+::vector$<$ unsigned int $>$}]{i }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vector of all the vertices \\
+\hline
+{\em i} & vector of all the indices\\
+\hline
+\end{DoxyParams}
+returns a copy of the \mbox{\hyperlink{classmesh__prototype}{mesh\+\_\+prototype}} object created in the solve\+\_\+child method, the reason we use this is because when we push a \mbox{\hyperlink{classmesh__prototype}{mesh\+\_\+prototype}} object into the meshes vector it is stored by reference, and when the object goes out of the destructor is called, resulting in us havinmg to fetch the data from the R\+AM again To avoid that we create a copy of the class, and since Open\+Gl bindings are universal the V\+AO\textquotesingle{}s are not los, Also the copy is not created by calling the constructor again, but by replicating memory, so we don\textquotesingle{}t need to worry about extra V\+AO\textquotesingle{}s \mbox{\Hypertarget{classscene__artefact_aa13bdfc3c058b918c90e484c03a98947}\label{classscene__artefact_aa13bdfc3c058b918c90e484c03a98947}} 
+\index{scene\_artefact@{scene\_artefact}!illustrate@{illustrate}}
+\index{illustrate@{illustrate}!scene\_artefact@{scene\_artefact}}
+\doxysubsubsection{\texorpdfstring{illustrate()}{illustrate()}}
+{\footnotesize\ttfamily void scene\+\_\+artefact\+::illustrate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}}}]{shader,  }\item[{glm\+::mat4}]{model }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader} & The appropriate shader object \\
+\hline
+{\em model} & The model matrix of the object(the object\textquotesingle{}s transform), needs to be a glm\+::mat4\\
+\hline
+\end{DoxyParams}
+Draws the object on screen, we consider this method legacy, and dont recommend using this unless G\+PU memory is unavailable \mbox{\Hypertarget{classscene__artefact_afee32fe9de996d548ecad492aa7da740}\label{classscene__artefact_afee32fe9de996d548ecad492aa7da740}} 
+\index{scene\_artefact@{scene\_artefact}!quick\_illustrate\_unstable@{quick\_illustrate\_unstable}}
+\index{quick\_illustrate\_unstable@{quick\_illustrate\_unstable}!scene\_artefact@{scene\_artefact}}
+\doxysubsubsection{\texorpdfstring{quick\_illustrate\_unstable()}{quick\_illustrate\_unstable()}}
+{\footnotesize\ttfamily void scene\+\_\+artefact\+::quick\+\_\+illustrate\+\_\+unstable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}}}]{shader,  }\item[{glm\+::mat4}]{model }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader} & The appropriate shader object \\
+\hline
+{\em model} & The model matrix of the object(the object\textquotesingle{}s transform), needs to be a glm\+::mat4\\
+\hline
+\end{DoxyParams}
+The recommended way to draw objects on the screen, this is significantly faster than the other method , but the programmer needs to delete V\+AO\textquotesingle{}s that are not going to be reused to avoid overflow. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/artefact.\+h\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/artefact.\+cpp\end{DoxyCompactItemize}

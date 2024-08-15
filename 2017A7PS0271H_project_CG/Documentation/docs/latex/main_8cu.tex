@@ -1,0 +1,210 @@
+\hypertarget{main_8cu}{}\doxysection{D\+:/\+Computer\+Graphics/testing-\/things-\/master/src/main.cu File Reference}
+\label{main_8cu}\index{D:/ComputerGraphics/testing-\/things-\/master/src/main.cu@{D:/ComputerGraphics/testing-\/things-\/master/src/main.cu}}
+{\ttfamily \#include \char`\"{}cuda\+\_\+runtime.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}device\+\_\+launch\+\_\+parameters.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$G\+L/glew.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$G\+L\+F\+W/glfw3.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Shader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Vertex\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Index\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vert\+\_\+array\+\_\+quick\+\_\+bind.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Global\+\_\+\+Bind\+\_\+\+Test.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freecam.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}artefact.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stb\+\_\+image/stb\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cuda\+G\+L.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cuda\+\_\+gl\+\_\+interop.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$thrust/device\+\_\+vector.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Texture.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ray.\+cuh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sphere.\+cuh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}scene.\+cuh\char`\"{}}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ray\+\_\+tracing\+\_\+camera.\+cuh\char`\"{}}\newline
+{\ttfamily \#include $<$curand\+\_\+kernel.\+h$>$}\newline
+{\ttfamily \#include $<$glm/gtc/random.\+hpp$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cu_a8b27c54944ff648eccb8c97dac8ec003}\label{main_8cu_a8b27c54944ff648eccb8c97dac8ec003}} 
+\#define \mbox{\hyperlink{main_8cu_a8b27c54944ff648eccb8c97dac8ec003}{gpu\+Check\+Errs}}(ans)~\{ \mbox{\hyperlink{main_8cu_ab3e90881a2476fd461eb2bcfcaa7cf63}{gpu\+Assert}}((ans), \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \}
+\begin{DoxyCompactList}\small\item\em error checking support \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cu_a88753827be6eabf164284b13145f4e62}\label{main_8cu_a88753827be6eabf164284b13145f4e62}} 
+\#define \mbox{\hyperlink{main_8cu_a88753827be6eabf164284b13145f4e62}{R\+A\+N\+D\+V\+E\+C3}}~vec3(curand\+\_\+uniform(local\+\_\+rand\+\_\+state),curand\+\_\+uniform(local\+\_\+rand\+\_\+state),curand\+\_\+uniform(local\+\_\+rand\+\_\+state))
+\begin{DoxyCompactList}\small\item\em A random state uniform from the Cu\+RanD library is returned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cu_ab3e90881a2476fd461eb2bcfcaa7cf63}\label{main_8cu_ab3e90881a2476fd461eb2bcfcaa7cf63}} 
+void \mbox{\hyperlink{main_8cu_ab3e90881a2476fd461eb2bcfcaa7cf63}{gpu\+Assert}} (cuda\+Error\+\_\+t code, const char $\ast$file, int line, bool abort=true)
+\begin{DoxyCompactList}\small\item\em call inside this function for C\+U\+DA error checking. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cu_a7a03742730ee18146ac96231fe380382}\label{main_8cu_a7a03742730ee18146ac96231fe380382}} 
+void \mbox{\hyperlink{main_8cu_a7a03742730ee18146ac96231fe380382}{Mouse\+Control\+Wrapper}} (G\+L\+F\+Wwindow $\ast$window, double mouse\+\_\+x, double mouse\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Wrapper function for the mouse controller. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cu_aa432fb0ced7dbf472b08d4579f6666d1}\label{main_8cu_aa432fb0ced7dbf472b08d4579f6666d1}} 
+void \mbox{\hyperlink{main_8cu_aa432fb0ced7dbf472b08d4579f6666d1}{Scroll\+Control\+Wrapper}} (G\+L\+F\+Wwindow $\ast$window, double x\+\_\+disp, double y\+\_\+disp)
+\begin{DoxyCompactList}\small\item\em Wrapper class for the scroll controller. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ vec3 \mbox{\hyperlink{main_8cu_ad5f53840f62f2e13199550bde2a4ed21}{random\+\_\+in\+\_\+unit\+\_\+sphere}} (curand\+State $\ast$local\+\_\+rand\+\_\+state)
+\item 
+\+\_\+\+\_\+global\+\_\+\+\_\+ void \mbox{\hyperlink{main_8cu_a104d60ba97b171ab1b7407b466fd1a87}{make\+\_\+scene}} (\mbox{\hyperlink{classsphere}{sphere}} $\ast$$\ast$spheres, \mbox{\hyperlink{classscene}{scene}} $\ast$$\ast$dev\+\_\+ptr, int count)
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ vec3 \mbox{\hyperlink{main_8cu_a4b2422c86aafeab5e1bce0c66ccbaa88}{reflect}} (vec3 v, vec3 n)
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ vec3 \mbox{\hyperlink{main_8cu_aac8505334b61cbd4f9b338d7ede63ec5}{refract}} (vec3 uv, vec3 n, float etai\+\_\+over\+\_\+etat)
+\item 
+\mbox{\Hypertarget{main_8cu_ae93c9ffc0bed78292ddd43b49ee1bccb}\label{main_8cu_ae93c9ffc0bed78292ddd43b49ee1bccb}} 
+\+\_\+\+\_\+device\+\_\+\+\_\+ vec3 {\bfseries ofset} (\mbox{\hyperlink{classray}{ray}} r, vec3 origin)
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ vec3 \mbox{\hyperlink{main_8cu_a37c9065581e773e9733e5cd93ac2489a}{pix\+\_\+data3}} (\mbox{\hyperlink{classray}{ray}} r, unsigned char $\ast$sky, int su, int sv, \mbox{\hyperlink{classscene}{scene}} $\ast$$\ast$sc, curand\+State $\ast$local\+\_\+rand\+\_\+state, int depth)
+\item 
+\+\_\+\+\_\+global\+\_\+\+\_\+ void \mbox{\hyperlink{main_8cu_a957a67d1f8d28eb9b6ac29b1631e235a}{render}} (unsigned char $\ast$pix\+\_\+buff\+\_\+loc, int max\+\_\+x, int max\+\_\+y, unsigned char $\ast$sky, \mbox{\hyperlink{classscene}{scene}} $\ast$$\ast$sc, curand\+State $\ast$rand\+\_\+state)
+\item 
+\+\_\+\+\_\+global\+\_\+\+\_\+ void \mbox{\hyperlink{main_8cu_a06c421d820bcf47c13aa9f0ce9a3b569}{render\+\_\+init}} (curand\+State $\ast$rand\+\_\+state)
+\item 
+\+\_\+\+\_\+global\+\_\+\+\_\+ void \mbox{\hyperlink{main_8cu_a9095625cba7ceb015c94ae3ab6df952e}{add\+\_\+spheres}} (\mbox{\hyperlink{classsphere}{sphere}} $\ast$$\ast$sph, int count)
+\item 
+int \mbox{\hyperlink{main_8cu_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cu_adc2d0db7e81e7eaf1ddb721309ef6736}\label{main_8cu_adc2d0db7e81e7eaf1ddb721309ef6736}} 
+\mbox{\hyperlink{classfreecam}{freecam}} \mbox{\hyperlink{main_8cu_adc2d0db7e81e7eaf1ddb721309ef6736}{primary\+\_\+cam}}
+\begin{DoxyCompactList}\small\item\em The raster camera, not really needed, but since we are using an unmodified older shader that does need this, we left it in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cu_a9095625cba7ceb015c94ae3ab6df952e}\label{main_8cu_a9095625cba7ceb015c94ae3ab6df952e}} 
+\index{main.cu@{main.cu}!add\_spheres@{add\_spheres}}
+\index{add\_spheres@{add\_spheres}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{add\_spheres()}{add\_spheres()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+global\+\_\+\+\_\+ void add\+\_\+spheres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsphere}{sphere}} $\ast$$\ast$}]{sph,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sph} & Device pointer to thge G\+PU memory segment where the spheres are to be initialized. \\
+\hline
+{\em count} & The number of spheres in the scene.\\
+\hline
+\end{DoxyParams}
+Initializes the sphere objects, modify body to add remove, or resize the spheres. \mbox{\Hypertarget{main_8cu_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cu_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cu@{main.cu}!main@{main}}
+\index{main@{main}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The main driver, sets up the G\+L\+FW Open\+GL context, then the Textures and Pixel Buffer Object. Also renders the frame buffer to the Context. The Device pointers, shared memory, Open\+GL interop are al configured within the body. The thread dispatch is also configured. Effectively the mfunction draws a fullscreen quad onto the context and then texture maps the ray traced pixel buffer which is shared with C\+U\+DA onto the Quad. \mbox{\Hypertarget{main_8cu_a104d60ba97b171ab1b7407b466fd1a87}\label{main_8cu_a104d60ba97b171ab1b7407b466fd1a87}} 
+\index{main.cu@{main.cu}!make\_scene@{make\_scene}}
+\index{make\_scene@{make\_scene}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{make\_scene()}{make\_scene()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+global\+\_\+\+\_\+ void make\+\_\+scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsphere}{sphere}} $\ast$$\ast$}]{spheres,  }\item[{\mbox{\hyperlink{classscene}{scene}} $\ast$$\ast$}]{dev\+\_\+ptr,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em spheres} & device pointer to the memory segment on the V\+R\+AM where the sphere definitions are present. \\
+\hline
+{\em dev\+\_\+ptr} & dev\+\_\+ptr device pointer to the G\+PU memory segment where the scene is to be set up. \\
+\hline
+{\em count} & The number of spheres in the scene. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cu_a37c9065581e773e9733e5cd93ac2489a}\label{main_8cu_a37c9065581e773e9733e5cd93ac2489a}} 
+\index{main.cu@{main.cu}!pix\_data3@{pix\_data3}}
+\index{pix\_data3@{pix\_data3}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{pix\_data3()}{pix\_data3()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ vec3 pix\+\_\+data3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classray}{ray}}}]{r,  }\item[{unsigned char $\ast$}]{sky,  }\item[{int}]{su,  }\item[{int}]{sv,  }\item[{\mbox{\hyperlink{classscene}{scene}} $\ast$$\ast$}]{sc,  }\item[{curand\+State $\ast$}]{local\+\_\+rand\+\_\+state,  }\item[{int}]{depth }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The ray with which the the intersection is done. \\
+\hline
+{\em sky} & A pointer to the sky texture character array. \\
+\hline
+{\em su} & The u co-\/ordinate of the sky pixel which needs to be projected. \\
+\hline
+{\em sv} & the v co-\/ordinate of the sky pixel which needs to be projected. \\
+\hline
+{\em sc} & The device pointer to the memory segment where the scene was set up. \\
+\hline
+{\em local\+\_\+rand\+\_\+state} & pointer to the Cu\+Rand state associated with current pixel. \\
+\hline
+{\em depth} & The maximum recursion depth.\\
+\hline
+\end{DoxyParams}
+Returns the pixel color by recursively multiplying the attenuated colors, after 10 light bounces. The {\bfseries{device}} declspec means that this function can only be called on the G\+PU. \mbox{\Hypertarget{main_8cu_ad5f53840f62f2e13199550bde2a4ed21}\label{main_8cu_ad5f53840f62f2e13199550bde2a4ed21}} 
+\index{main.cu@{main.cu}!random\_in\_unit\_sphere@{random\_in\_unit\_sphere}}
+\index{random\_in\_unit\_sphere@{random\_in\_unit\_sphere}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{random\_in\_unit\_sphere()}{random\_in\_unit\_sphere()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ vec3 random\+\_\+in\+\_\+unit\+\_\+sphere (\begin{DoxyParamCaption}\item[{curand\+State $\ast$}]{local\+\_\+rand\+\_\+state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+\_\+rand\+\_\+state} & A pointer the the C\+U\+DA random state\\
+\hline
+\end{DoxyParams}
+Returns a point inside a unit sphere on the surface of the sphere where the ray intersection takes place. \mbox{\Hypertarget{main_8cu_a4b2422c86aafeab5e1bce0c66ccbaa88}\label{main_8cu_a4b2422c86aafeab5e1bce0c66ccbaa88}} 
+\index{main.cu@{main.cu}!reflect@{reflect}}
+\index{reflect@{reflect}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{reflect()}{reflect()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ vec3 reflect (\begin{DoxyParamCaption}\item[{vec3}]{v,  }\item[{vec3}]{n }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The incident ray direction. \\
+\hline
+{\em n} & The unit vector of the normal at the intersection point.\\
+\hline
+\end{DoxyParams}
+Returns the direction of the reflected ray. The {\bfseries{device}} declspec means that this can only be called on the G\+PU. \mbox{\Hypertarget{main_8cu_aac8505334b61cbd4f9b338d7ede63ec5}\label{main_8cu_aac8505334b61cbd4f9b338d7ede63ec5}} 
+\index{main.cu@{main.cu}!refract@{refract}}
+\index{refract@{refract}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{refract()}{refract()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ vec3 refract (\begin{DoxyParamCaption}\item[{vec3}]{uv,  }\item[{vec3}]{n,  }\item[{float}]{etai\+\_\+over\+\_\+etat }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em uv} & The direction vector of the incident ray. \\
+\hline
+{\em n} & The normal at the point where the ray intersects the sphere. \\
+\hline
+{\em etai\+\_\+over\+\_\+etat} & The refractive index of the spheres material.\\
+\hline
+\end{DoxyParams}
+Returns the direction of the refracted ray the {\bfseries{device}} declspec means that this can only be called on the G\+PU. \mbox{\Hypertarget{main_8cu_a957a67d1f8d28eb9b6ac29b1631e235a}\label{main_8cu_a957a67d1f8d28eb9b6ac29b1631e235a}} 
+\index{main.cu@{main.cu}!render@{render}}
+\index{render@{render}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+global\+\_\+\+\_\+ void render (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{pix\+\_\+buff\+\_\+loc,  }\item[{int}]{max\+\_\+x,  }\item[{int}]{max\+\_\+y,  }\item[{unsigned char $\ast$}]{sky,  }\item[{\mbox{\hyperlink{classscene}{scene}} $\ast$$\ast$}]{sc,  }\item[{curand\+State $\ast$}]{rand\+\_\+state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pix\+\_\+buff\+\_\+loc} & A device pointer to the segment of memory on the G\+PU with the Open\+GL pixel buffer object. \\
+\hline
+{\em sky} & A pointer to the sky texture character array. \\
+\hline
+{\em max\+\_\+x} & The index of the left\+\_\+most pixel of the frame buffer. \\
+\hline
+{\em max\+\_\+y} & The index of the right most pixel of the frame buffer. \\
+\hline
+{\em rand\+\_\+state} & pointer to the array of Cu\+Rand states. \\
+\hline
+{\em sc} & Device pointer to the segment of memory containing the scene object.\\
+\hline
+\end{DoxyParams}
+Populates the pixel buffer with appropriate pixel colors and intensities, by implementing the ray tracing algorithm. Multi\+Sample Anti\+Aliasing is also implemented(Sample Count = 100). The {\bfseries{device}} declspec means that this function can only be called on the G\+PU. \mbox{\Hypertarget{main_8cu_a06c421d820bcf47c13aa9f0ce9a3b569}\label{main_8cu_a06c421d820bcf47c13aa9f0ce9a3b569}} 
+\index{main.cu@{main.cu}!render\_init@{render\_init}}
+\index{render\_init@{render\_init}!main.cu@{main.cu}}
+\doxysubsubsection{\texorpdfstring{render\_init()}{render\_init()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+global\+\_\+\+\_\+ void render\+\_\+init (\begin{DoxyParamCaption}\item[{curand\+State $\ast$}]{rand\+\_\+state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rand\+\_\+state} & Pointer to the G\+PU memory segment where the Cu\+Rand states are to be initailized.\\
+\hline
+\end{DoxyParams}
+Initializes C\+U\+DA random states at the given device pointer. 

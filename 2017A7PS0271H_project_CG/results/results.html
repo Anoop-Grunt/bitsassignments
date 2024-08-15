@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <nav class="purple">
+       
+    <div class="nav-wrapper">
+      <a href="#" data-target="slide-out" class="brand-logo center" >Computer Graphics Project</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        
+      </ul>
+    </div>
+  </nav>
+  <body>
+    <div class="container">
+    <h4 class="center-align">
+        Team
+    </h4>
+    <table class="highlight" >
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>ID Number</th>
+             
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>K Venkat Anoop</td>
+            <td>2017A7PS0271H</td>
+           
+          </tr>
+          <tr>
+            <td>M Trinadh</td>
+            <td>2017A7PS0061H</td>
+            
+          </tr>
+          <tr>
+            <td>C Mahesh Babu</td>
+            <td>2017A7PS0235H</td>
+            
+          </tr>
+        </tbody>
+    </table>
+    <h4 class="center-align" >
+        The Scenes
+    </h4>
+    <p class="flow-text">The scenes contain spheres placed in such a way as to highlight the advantages of the illumination model. Spheres were chosen because the intersection test is simple. 
+    </p>
+    <h4 class="center-align" >
+        Implementation Notes.
+    </h4>
+    <p class="flow-text">
+       The way the illumination model works is that the camera casts rays onto the scene, the rays hit objects, and pick the color values from the material.
+       Depending on the material, the rays will be reflected, refracted or scattered at the intersection with the object. To handle this, we just cast another ray from the intersection point and multiply the color value returned, with the current color value. The final color value will be the pixels color value. Rasterizing techniques like normalizing transforms, perspective projections, etc are not needed here because they are intrinsic to the behavior of pinhole cameras, which are accurately modeled here.
+       Additionally multi sample antialiasing is implemented by averaging the color from 100 samples for each pixel. The final result is rendered onto an OpenGL PBO which is flushed onto a texture, which is mapped onto a fullscreen quad in the OpenGL context provided by GLFW
+    </p>
+
+    <div class="row">
+        <div class="col s5 m10">
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="media\OpenGL Interop.PNG">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">CUDA OpenGL Interop<i class="material-icons right"></i></span>
+          <p><a href="#">Click on the image for more details</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">CUDA OpenGL Interop<i class="material-icons right">close</i></span>
+          <p>To draw onto the OpenGL Context, the scene in ray traced onto a pixel buffer object, unpacked onto a texture, then mapped onto a fullscreen quad.
+            To achieve this the pixel buffer object is mapped to a cuda resource, then after the pixel buffer object has been written by the CUDA threads, the resource is unmapped. The GL_TEXTURE_2D without a source reads from the pixel buffer, this texture is bound to a vertex array, and the fragment shader samples from the texture onto the quad. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="flow-text">
+    The pix_data and render functions are responsible for writing the result of the ray traced scene onto the CUDA shared resource. The thread dispatch has been configured so that the fastest performance is achieved. Please click on the images attached below for details. Also check the kernel call in the main function.
+  </p>
+  <div class="row">
+    <div class="col s1 m5">
+     
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="media\pix_data.PNG">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">pix_data function<i class="material-icons right"></i></span>
+          <p><a href="#">Click on the image for details of the function</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">pix_data function<i class="material-icons right">close</i></span>
+          <p>The pix data function recieves a ray, and returns a color value in the form of a glm::vec3 object (RGB is assumed). This is the core of the ray tracing algorithm, the ray it recieves is tested for intersections with objects in the scene, and in the case of a successful hit, the material properties are remembered, and the ray is scattered. The scattered ray is passed to a recursive call of the same function, and color returned is multiplied with the original color. This is continued untill the maximum recursion depth(Bounce limit for the rays) is reached, or the ray hits nothing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col s1 m5">
+     
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="media\render.PNG">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Render function<i class="material-icons right"></i></span>
+          <p><a href="#">Click on the image for details of the function</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Render function<i class="material-icons right">close</i></span>
+          <p>The render function dispatches threads on the GPU for each pixel, generates the cameras first ray and calls the pix_data  function. The result from the call is written to the appropriate memory segment in the pixel buffer object. Before writing to the pixel buffer, the colors are gamma corrected.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  </div>
+  <p class="flow-text">
+    The object hit test reqiures ray casting which is achieved with the ray class. When a ray successfully  hits an object the object returns a normal and a material, which are used to scatter the ray, and color the pixel respectively. The sphere class itself contains the hit method, and the scene object's hit method is basically just iterating over all the spheres and testing for hits. For more details click on the images below.
+ </p>
+ <div class="row">
+  <div class="col s1 m5">
+   
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="media\just_hit.PNG">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">sphere::hit function<i class="material-icons right"></i></span>
+        <p><a href="#">Click on the image for details of the function</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">sphere::hit function<i class="material-icons right">close</i></span>
+        <p>
+          The sphere hit involves checking if the perpendicular distance from the center of the sphere to the ray is greater or lesser than the radius. If it is greater the ray never touches the sphere, if it is equal the ray is tangential to the sphere, if it is less than, the ray touches the sphere at two points. The corresponding points are calculated by solving a quadratic equation in t and using the get_point_at_t() method from the ray class.
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="media\mat_modif.PNG">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">sphere::hit function modifying the materials<i class="material-icons right"></i></span>
+        <p><a href="#">Click on the image for details</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">sphere::hit function<i class="material-icons right">close</i></span>
+        <p>
+          The sphere hit function recieves a material struct pointer as input, and on succesful intersection, modifies the values of the struct. Other than the albedo color, the material type is also set, which is used by the pix_data function while scattering the ray, since reflective, refractive, and lambertian materials scatter light differently. 
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col s1 m5">
+   
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="media\ray.PNG">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Ray class<i class="material-icons right"></i></span>
+        <p><a href="#">Click on the image for details of the class</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Ray class<i class="material-icons right">close</i></span>
+        <p>
+          The ray class contructor is only compiled for the NVIDIA GPU. The class contains the origin and direction of the ray, and also methods to return the same. Since the parametric form is used for the intersection test, the ray class also implements a method that returns a point on the ray at parameter t.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  <h4 class="center-align">
+        The Algorithm
+    </h4>
+    <p class="flow-text">
+       The algorithm implemented is described in the paper 'A Better Illumination Model for Shaded Display' . The paper contains a ray tracing algorithm for scene lighting that simulates physically accurate behavior of light by mathematically modelling phenomenon like reflection, refraction, and lambertian scattering. The final color is decided by multiplying the color values of the scattered rays. The projection principle is the same as a real life pinhole camera, and we do not need to resort to rasterizing techniques like normalizing transforms, perspective projections, etc. The pros of using this shading model is that we get physically accurate lighting, but the algorithm is very slow, and computationally expensive. Every pixel on the viewport has a corresponding point on the projection plane, through which a ray is cast from the camera. This is the ray that will be scattered and finally used for shading. The scattered ray is an entirely new ray emanating at the point of contact and the direction depends on the material type.  
+    </p>    
+    <p class="flow-text">
+    We have made the following illustrations in blender to show how pinhole cameras work, and why the perspective foreshortening effect is intrinsic to ray tracing and needs no additional steps.
+    </p>    
+    <div class="row">
+      <div class="video-container">
+        <iframe width="853" height="480" src="media\Blender [D__BlenderProjects_ray_trace_illustration.blend] 2020-05-10 17-50-34.mp4" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-container">
+        <iframe width="853" height="480" src="media\0001-0060.mp4" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <h4 class="center-align">
+            Final Results 
+        </h4> 
+        <p class="flow-text">
+           The images below were rendered by the ray tracer.
+        </p>
+        <p class="flow-text">
+          Reflective materials scatter light according to the law of reflection, i.e the incident ray and the reflected ray make the same angle with the normal, but the reflected ray's component along the normal is the negative of the incident ray's.  
+       </p> 
+       
+        <div class="row">
+          <div class="col s1 m10">
+           
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="media\100xsupersampled.png">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Reflective materials<i class="material-icons right"></i></span>
+                <p><a href="#">Click on the image for details of the render</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Reflective materials<i class="material-icons right">close</i></span>
+                <p>  
+                  The image was generated with 10 light bounces. As can be seen in the image, all the materials are reflective, and all the spheres cast reflections onto other spheres. The reflections within the reflections can also be seen because the rays aren't terminated after a single bounce. Also since the reflection is being cast on a curved surface, the distortion can be seen in the shapes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="flow-text">
+          Diffuse materials scatter light in random directions. Since there is no lightsource here other than the camera we need not invoke Lambert's law of cosines. Diffuse materials can recieve shadows, and also cast shadows. Click on the image below for more details.
+       </p> 
+        <div class="row">
+          <div class="col s1 m10">
+           
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="media\Screenshot (14).png">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Diffuse materials<i class="material-icons right"></i></span>
+                <p><a href="#">Click on the image for details of the render</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Diffuse materials<i class="material-icons right">close</i></span>
+                <p>  
+                  The white material is reflective, and all the others are mainly lambertian with low reflectivity. As can be seen the pure reflector recieves no shadows, while all the other spheres do. The random scatter direction is because of the roughness of the material, i.e the normals at the point of contact are not radially outward. Since we supersample anyway, we can just randomly scatter the rays as an approximation. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="flow-text">
+          Refractive materials scatter light according to Snell's law. Click on image for more details.
+       </p> 
+        <div class="row">
+          <div class="col s1 m10">
+           
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="media\Screenshot (16).png">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Refractive materials<i class="material-icons right"></i></span>
+                <p><a href="#">Click on the image for details of the render</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Refractive materials<i class="material-icons right">close</i></span>
+                <p>  
+                  The material second to the left is refractive, and as can be seen in the render, the green sphere is inverted. This may look strange, but that is because transparent spheres are uncommon in real life. Refractive materials scatter light according to snells law, i.e the ratio of sines of the angles of incidence and refraction is the same as the ratio of refractive indices of the two materials. We have enclosed real life proof of this behavior below.
+                </p>
+                <img  src="media\proof.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="flow-text">
+            Ray tracing can produce results that are much better than screen space reflections, as can be seen below. Click on image for more details.
+        </p> 
+        <div class="row">
+          <div class="col s1 m10">
+           
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="media\Screenshot (15).png">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Improvement over screen space reflections<i class="material-icons right"></i></span>
+                <p><a href="#">Click on the image for details of the render</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Improvement over screen space reflections<i class="material-icons right">close</i></span>
+                <p>  
+                  Screen space reflections cannot ever produce self reflections. SSR also cannot produce multiple reflections like ray tracing can, without much modification. Also SSR can't easily produce reflections of shadows(unless the post processing stack is re-ordered)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="flow-text">
+         Skyboxes, and skydomes are handled differently in ray tracing. Instead of simply sampling from a cube map by using texture uv's, the skybox needs to be mapped in perspective, i.e., the rays that do not hit any object need to return a color from a separate mapping that maps from the viewport directly to the Texture. 
+      </p> 
+      <div class="row">
+        <div class="col s1 m10">
+         
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="media\Screenshot (11).png">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Skyboxes, and skydomes.<i class="material-icons right"></i></span>
+              <p><a href="#">Click on the image for details of the render</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Skyboxes, and skydomes.<i class="material-icons right">close</i></span>
+              <p>  
+                We have undersampled the materials here to give a transaprent effect. This was done to highlight the skybox. The viewport and the texture are both 1920/1080 so we could have a direct mapping. But this won't be the case for a different sized texture.
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+          <h4 class="center-align">
+            Final Note
+        </h4> 
+        <p class="flow-text">
+            The libraries used were GLM, GLEW, GLFW, CUDA and assimp. GLFW needs to be statically linked, whereas GLEW, and assimp need to be dynamically linked for the code to work(dll files need to be next to executables).
+            The include folders in each dependency folder have to be added to the include paths becuase the source code addressing is relative to the visual studio solution directory.
+            GLM is a header only library and the source code is found in src/vendor. 
+            Finally, assimp was built using the 64bit debug configuration in visual studio and won't work on 32bit machines. 
+            CUDA only works on NVIDIA Graphics cards, and the current version of the code only works on cards with Compute Capability 6 or higher(The thread dispatch can be reconfigured to run on lower performance cards, but the render will take much longer). Using OpenCV would have enabled us to write code to run on Intel and AMD cards, but from our research CUDA is significanlty faster. Finally, the reason we chose CUDA over GLSL compute shaders is simply because CUDA offers low level memory management, resource mapping, etc, which was critical for our project as running on a GTX 1050ti was causing a heap overflow (CUDA has a heap limit of 8MB per thread) in the VRAM. Additionally since CUDA Gives us direct control of blocks and threads, we had a more intuitive way of pixel buffer unpacking than the work group paradigm which is offered in the GLSL Compute Shaders as of OpenGL 4.6 . Average rendering time for the images was around one minute per image (100 samples). Needless to say, this meant that we could not use a realtime camera (which requires 60 images per second). Finally we have attached the performance metrics from NVIDIA Nsight (which was our primary debugger) below, as proof that the CPU is barely used, meaning that performance can't be improved much more.
+
+        </p>
+        <div class="row">
+          <div class="col s1 m10">
+           
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="media\Screenshot (31).png">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Nsight Report<i class="material-icons right"></i></span>
+                <p><a href="#">Click on the image for details of the report</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Nsight Report<i class="material-icons right">close</i></span>
+                <p>  
+                  As can be seen in the Nsight report, The draw times are very quick. Also we have opened the API inspector to expose our fragment shader, to reassure that only a sampler2D uniform was used. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h4 class="center-align">
+          Thank You and Best Regards - The Team.
+      </h4> 
+    </div>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>
+      

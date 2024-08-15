@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+<title>Assignment-1 Analysis </title>
+</head>
+<body>
+    <h1 style="font-size: 35px; text-align: center;"><b><u>Assignment-1 Analysis</u></b></h1>
+    <br>
+    <h1><u>Results</u></h1>
+    <p style="font-size: 22px;">We ran both the algorithms on three small testcases to verify our algorithm implementation and on two large testcases with more than 1000 nodes in each to check the robustness of the algorithm.<br>The small testcases are taken from the files small_b1.txt, small_b2.txt, small_b3.txt,small_g1.txt, small_g2.txt, and small_g3.txt & the large test cases are taken from the files large_g1.txt, large_g2.txt, large_b1.txt, and large_b2.txt. The outputs of the algorithms are stored in the output files Output_small_g1.txt, Output_small_g2.txt, Output_small_g3.txt, Output_small_b1.txt, Output_small_b2.txt, and Output_small_b3.txt for the six small testcases and in Output_large_g1, Output_large_g2.txt, Output_large_b1.txt, and Output_large_b2.txt for the four large testcases.<br></p><br>
+      
+    <h1><u>Issues in coding</u></h1>
+    <p style="font-size: 22px;">The bipartite algorithm implementation was pretty straight forward after implementation of ford fulkerson algorithm which gave troubles when we wanted nodes to be pushed in a queue and during implentation of min cut we got a lot of segmentation faults.</p><br>
+
+    <h1><u>Discussion on Algorithms</u></h1>
+    <h2><u>Ford Fulkerson</u></h2>
+    <p style="font-size: 22px;">In <u>Ford Fulkerson</u> we run algorithm in 3 broad steps i.e, first we assume the initial flow to be zero, next we check for augment path from source to sink and add this path's flow to overall flow, and lastly we return flow when there are no augment path in existance.</p><br>
+
+    <h2><u>Bipartite Problem</u></h2>
+    <p style="font-size: 22px;">For <u>Bipartite Problem</u> we ran the input through same ford fulkerson algorithm with following change: We assumed source to be zero and all vertices of N-set are added by no.of vertices in M-set and sink is set to be no.of vertices in M-set + N-set + 1.</p>
+    <br>
+
+    <h1><u>Timing Analysis</u></h1>
+    <p style="font-size: 22px;">Time complexity of the Ford Fulkerson algorithm is O(max_flow * no_of_Edges). The time taken by small graphs (under 100 nodes and 300 edges) was always under 0.008sec of which the highest being 0.005343 sec for small_g1.txt. The larger graphs took more time due to the size of 2-d arrays in thier cases of which highest time is taken by large_b2.txt which is 681.635721 sec.</p><br>
+
+    <h1><u>Remarks</u></h1><br>
+    <p></p>
+</body>

@@ -1,0 +1,65 @@
+\hypertarget{class_vertex_buffer}{}\doxysection{Vertex\+Buffer Class Reference}
+\label{class_vertex_buffer}\index{VertexBuffer@{VertexBuffer}}
+
+
+{\ttfamily \#include $<$Vertex\+Buffer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vertex_buffer_af8adb744d388d978af68035cf8254425}{Vertex\+Buffer}} (const void $\ast$data, unsigned int size)
+\item 
+\mbox{\hyperlink{class_vertex_buffer_a5216726fdd43b2ae8e1439e347717fdd}{$\sim$\+Vertex\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{class_vertex_buffer_a13019e8580ca3e369fad4166500ad2b9}{Bind}} () const
+\item 
+void \mbox{\hyperlink{class_vertex_buffer_abfdb36238d60f2cd7bf63093f914b61f}{Unbind}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A wrapper class around the Open\+GL gl\+Vertex\+Buffer type.
+
+Earlier version would delete the buffer when the desstructor was called, meaning that subsequent draw calls would need to reload the buffer from C\+PU memory The current version does not handle G\+PU memory management,but is much faster, so use accordingly 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vertex_buffer_af8adb744d388d978af68035cf8254425}\label{class_vertex_buffer_af8adb744d388d978af68035cf8254425}} 
+\index{VertexBuffer@{VertexBuffer}!VertexBuffer@{VertexBuffer}}
+\index{VertexBuffer@{VertexBuffer}!VertexBuffer@{VertexBuffer}}
+\doxysubsubsection{\texorpdfstring{VertexBuffer()}{VertexBuffer()}}
+{\footnotesize\ttfamily Vertex\+Buffer\+::\+Vertex\+Buffer (\begin{DoxyParamCaption}\item[{const void $\ast$}]{data,  }\item[{unsigned int}]{size }\end{DoxyParamCaption})}
+
+constructor for the class 
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the segment of contiguous memory \\
+\hline
+{\em size} & Size in bytes of the vertex set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vertex_buffer_a5216726fdd43b2ae8e1439e347717fdd}\label{class_vertex_buffer_a5216726fdd43b2ae8e1439e347717fdd}} 
+\index{VertexBuffer@{VertexBuffer}!````~VertexBuffer@{$\sim$VertexBuffer}}
+\index{````~VertexBuffer@{$\sim$VertexBuffer}!VertexBuffer@{VertexBuffer}}
+\doxysubsubsection{\texorpdfstring{$\sim$VertexBuffer()}{~VertexBuffer()}}
+{\footnotesize\ttfamily Vertex\+Buffer\+::$\sim$\+Vertex\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The default destructor, unlike earlier debug versions this doesn\textquotesingle{}t handle G\+PU memory management ,so correctness is traded for speed 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vertex_buffer_a13019e8580ca3e369fad4166500ad2b9}\label{class_vertex_buffer_a13019e8580ca3e369fad4166500ad2b9}} 
+\index{VertexBuffer@{VertexBuffer}!Bind@{Bind}}
+\index{Bind@{Bind}!VertexBuffer@{VertexBuffer}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void Vertex\+Buffer\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Binds the associated vertex buffer to the G\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+B\+U\+F\+F\+ER target Use when drawing with the gl\+Draw\+Arrays calll \mbox{\Hypertarget{class_vertex_buffer_abfdb36238d60f2cd7bf63093f914b61f}\label{class_vertex_buffer_abfdb36238d60f2cd7bf63093f914b61f}} 
+\index{VertexBuffer@{VertexBuffer}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!VertexBuffer@{VertexBuffer}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void Vertex\+Buffer\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Unbinds the associated vertex buffer Use after the draw call has been issued 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Vertex\+Buffer.\+h\item 
+D\+:/\+Computer\+Graphics/\+Computer-\/\+Graphics-\/\+Assignment-\/2-\/optimization\+\_\+test/src/Vertex\+Buffer.\+cpp\end{DoxyCompactItemize}
